@@ -1,0 +1,3 @@
+Los Test Cases están diseñados para ser ejecutados con nuestro PopulateDatabase.xml.
+En el caso de que se deseen probar con otros datos distintos en la Base de datos que no sean
+los de nuestro fichero PopulateDatabase.xml, no aseguramos su correcto funcionamiento.

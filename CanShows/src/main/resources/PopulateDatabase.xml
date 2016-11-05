@@ -1,0 +1,1620 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- * PopulateDatabase.xml * * Copyright (C) 2014 Universidad de Sevilla 
+	* * The use of this project is hereby constrained to the conditions of the 
+	* TDG Licence, a copy of which you may download from * http://www.tdg-seville.info/License.html -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- User accounts -->
+
+	<bean id="userAccount1" class="security.UserAccount">
+		<property name="username" value="admin" />
+		<property name="password" value="21232f297a57a5a743894a0e4a801fc3" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="ADMIN" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="userAccount2" class="security.UserAccount">
+		<property name="username" value="participant1" />
+		<property name="password" value="6b3ebb7546572cb7c90df341d113e6df" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="PARTICIPANT" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="userAccount3" class="security.UserAccount">
+		<property name="username" value="participant2" />
+		<property name="password" value="5b0399be2146c81ba5ac69c3e91b4021" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="PARTICIPANT" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="userAccount4" class="security.UserAccount">
+		<property name="username" value="organiser1" />
+		<property name="password" value="66f7546a22eb4c13c4a78d58b0a00194" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="ORGANISER" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="userAccount5" class="security.UserAccount">
+		<property name="username" value="organiser2" />
+		<property name="password" value="22ef0e5c643538df4e980eb206a10dd3" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="ORGANISER" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="userAccount6" class="security.UserAccount">
+		<property name="username" value="judge1" />
+		<property name="password" value="9801133a9a5eb052a4f588f44a86936d" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="JUDGE" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	<bean id="userAccount7" class="security.UserAccount">
+		<property name="username" value="judge2" />
+		<property name="password" value="1256db16c9c3ee2f9463fe547433950d" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="JUDGE" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+
+	<!-- Credit Card -->
+
+	<bean id="creditCard1" class="domain.CreditCard">
+		<property name="holderName" value="Julio Sanchez" />
+		<property name="brandName" value="BBVA" />
+		<property name="number" value="4940190000370787" />
+		<property name="expirationMonth" value="12" />
+		<property name="expirationYear" value="2017" />
+		<property name="cvv" value="123" />
+	</bean>
+	<bean id="creditCard2" class="domain.CreditCard">
+		<property name="holderName" value="David Ballesteros" />
+		<property name="brandName" value="Banesto" />
+		<property name="number" value="4940494049404940" />
+		<property name="expirationMonth" value="01" />
+		<property name="expirationYear" value="2018" />
+		<property name="cvv" value="123" />
+	</bean>
+
+
+	<!-- Administrator -->
+
+
+	<bean id="administrator1" class="domain.Administrator">
+		<property name="name" value="Paco" />
+		<property name="surname" value="León" />
+		<property name="email" value="pacoleon@gmail.com" />
+		<property name="phone" value="657896321" />
+		<property name="homePage" value="http://www.example.com/" />
+		<property name="userAccount" ref="userAccount1" />
+		<property name="nationality" value="Española" />
+		<property name="requests">
+			<list>
+				<ref bean="request1" />
+				<ref bean="request2" />
+				<ref bean="request3" />
+				<ref bean="request4" />
+				<ref bean="request5" />
+			</list>
+		</property>
+	</bean>
+
+	<!-- Participant -->
+
+	<bean id="participant1" class="domain.Participant">
+		<property name="name" value="Julio" />
+		<property name="surname" value="Sánchez" />
+		<property name="email" value="juliosanchez@gmail.com" />
+		<property name="phone" value="657896324" />
+		<property name="homePage" value="http://www.example1.com/" />
+		<property name="userAccount" ref="userAccount2" />
+		<property name="nationality" value="Spanish" />
+		<property name="creditCard" ref="creditCard1" />
+		<property name="folders">
+			<list>
+				<ref bean="inbox1" />
+				<ref bean="outbox1" />
+			</list>
+		</property>
+		<property name="friends">
+			<list>
+				<ref bean="participant2" />
+			</list>
+		</property>
+		<property name="dogs">
+			<list>
+				<ref bean="dog1" />
+				<ref bean="dog2" />
+				<ref bean="dog5" />
+				<ref bean="dog6" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="participant2" class="domain.Participant">
+		<property name="name" value="Francisco" />
+		<property name="surname" value="Fernández" />
+		<property name="email" value="franciscofernandez@gmail.com" />
+		<property name="phone" value="667896324" />
+		<property name="homePage" value="http://www.example2.com/" />
+		<property name="userAccount" ref="userAccount3" />
+		<property name="nationality" value="Spanish" />
+		<property name="creditCard" ref="creditCard2" />
+		<property name="friends">
+			<list>
+			</list>
+		</property>
+		<property name="folders">
+			<list>
+				<ref bean="inbox2" />
+				<ref bean="outbox2" />
+			</list>
+		</property>
+		<property name="dogs">
+			<list>
+				<ref bean="dog3" />
+				<ref bean="dog4" />
+			</list>
+		</property>
+	</bean>
+
+	<!-- Organisers -->
+
+	<bean id="organiser1" class="domain.Organiser">
+		<property name="name" value="Rafael" />
+		<property name="surname" value="Rodríguez Osorio" />
+		<property name="email" value="rafaro@gmail.com" />
+		<property name="phone" value="657822324" />
+		<property name="homePage" value="http://www.rafaro.com/" />
+		<property name="nationality" value="Spanish" />
+		<property name="userAccount" ref="userAccount4" />
+		<property name="creditCard" ref="creditCard1" />
+		<property name="competitions">
+			<list>
+				<ref bean="competition1" />
+				<ref bean="competition2" />
+				<ref bean="competition3" />
+
+			</list>
+		</property>
+	</bean>
+
+	<bean id="organiser2" class="domain.Organiser">
+		<property name="name" value="Jose María" />
+		<property name="surname" value="Caballero Alba" />
+		<property name="email" value="caballeroalba@gmail.com" />
+		<property name="phone" value="662296324" />
+		<property name="homePage" value="http://www.caballeroalba.com/" />
+		<property name="nationality" value="Spanish" />
+		<property name="userAccount" ref="userAccount5" />
+		<property name="creditCard" ref="creditCard1" />
+		<property name="competitions">
+			<list>
+				<ref bean="competition4" />
+				<ref bean="competition5" />
+				<ref bean="competition6" />
+
+			</list>
+		</property>
+	</bean>
+
+	<!-- Breeds -->
+
+	<bean id="breed1" class="domain.Breed">
+		<property name="name" value="Perro de agua Español" />
+		<property name="description"
+			value="El perro de agua español es una raza canina originaria de España, utilizada tradicionalmente como pastor, ayudante en barcos y en la caza." />
+		<property name="groups">
+			<list>
+				<ref bean="group1" />
+			</list>
+		</property>
+		<property name="dogs">
+			<list>
+				<ref bean="dog1" />
+				<ref bean="dog3" />
+				<ref bean="dog5" />
+				<ref bean="dog6" />
+			</list>
+		</property>
+	</bean>
+	<bean id="breed2" class="domain.Breed">
+		<property name="name" value="Bullmastiff" />
+		<property name="description"
+			value="El bullmastiff es una raza británica de perro que, según se cree, procede del cruce entre el mastín inglés y bulldogs." />
+		<property name="groups">
+			<list>
+				<ref bean="group2" />
+			</list>
+		</property>
+		<property name="dogs">
+			<list>
+				<ref bean="dog2" />
+			</list>
+		</property>
+	</bean>
+	<bean id="breed3" class="domain.Breed">
+		<property name="name" value="Komondor" />
+		<property name="description"
+			value="El Komondor es una raza de perro guardián y pastor, originario de Hungría. Su principal característica es el peculiar aspecto de su pelaje parecido al de un trapero, que cae formando mechones parecidos a las rastas usadas por los rastafari." />
+		<property name="groups">
+			<list>
+				<ref bean="group3" />
+			</list>
+		</property>
+		<property name="dogs">
+			<list>
+				<ref bean="dog4" />
+			</list>
+		</property>
+	</bean>
+	<bean id="breed4" class="domain.Breed">
+		<property name="name" value="Alano Español" />
+		<property name="description"
+			value="El alano español es una raza de perro de agarre o presa, su tamaño es medio y se considera como raza autóctona de España. " />
+		<property name="groups">
+			<list>
+			</list>
+		</property>
+		<property name="dogs">
+			<list>
+
+			</list>
+		</property>
+	</bean>
+	<bean id="breed5" class="domain.Breed">
+		<property name="name" value="Mastín" />
+		<property name="description"
+			value="Estos molosos se han empleado tradicionalmente como perros guardianes de ganado, y del hogar por su imponente aspecto y carácter dócil. Es frecuente aunque inexacto el uso de los términos moloso y dogo como sinónimos de mastín." />
+		<property name="groups">
+			<list>
+
+			</list>
+		</property>
+		<property name="dogs">
+			<list>
+
+			</list>
+		</property>
+	</bean>
+	<bean id="breed6" class="domain.Breed">
+		<property name="name" value="Dogo Canario" />
+		<property name="description"
+			value="El Dogo Canario es una raza de perro de gran tamaño, originaria de las Islas Canarias. El perro de presa canario se considera, según una ley del Gobierno de Canarias, el símbolo natural de la isla de Gran Canaria, conjuntamente con el cardón." />
+		<property name="groups">
+			<list>
+
+			</list>
+		</property>
+		<property name="dogs">
+			<list>
+
+			</list>
+		</property>
+	</bean>
+	<bean id="breed7" class="domain.Breed">
+		<property name="name" value="Podenco" />
+		<property name="description"
+			value="Se denomina podenco a un tipo de perro de caza de orígenes antiguos. Existen varias razas en la actualidad a lo largo de todo el Mediterráneo: se cree que el origen de estas razas modernas está en el Antiguo Egipto " />
+		<property name="groups">
+			<list>
+
+			</list>
+		</property>
+		<property name="dogs">
+			<list>
+
+			</list>
+		</property>
+	</bean>
+	<bean id="breed8" class="domain.Breed">
+		<property name="name" value="Drahthaar" />
+		<property name="description"
+			value="En este perro de caza de pelo largo se reúne la sangre de los sabueso, cazadores de aves, perros de aguas y cazadores con halcones y por ello tiene la tendencia a una gran versatilidad." />
+		<property name="groups">
+			<list>
+
+			</list>
+		</property>
+		<property name="dogs">
+			<list>
+
+			</list>
+		</property>
+	</bean>
+	<bean id="breed9" class="domain.Breed">
+		<property name="name" value="Chow Chow" />
+		<property name="description"
+			value="Es un perro de cuerpo robusto, cráneo amplio y pequeñas orejas triangulares, erectas y levemente redondeadas en la punta ligeramente inclinadas hacia delante. " />
+		<property name="groups">
+			<list>
+
+			</list>
+		</property>
+		<property name="dogs">
+			<list>
+
+			</list>
+		</property>
+	</bean>
+	<bean id="breed10" class="domain.Breed">
+		<property name="name" value="Akita" />
+		<property name="description"
+			value="Perro de talla grande y estructura sólida, bien equilibrado y con mucha sustancia; las características sexuales secundarias bien acentuadas, de gran nobleza y modesto señorío, de constitución fuerte." />
+		<property name="groups">
+			<list>
+
+			</list>
+		</property>
+		<property name="dogs">
+			<list>
+
+			</list>
+		</property>
+	</bean>
+	<bean id="breed11" class="domain.Breed">
+		<property name="name" value="American Foxhound" />
+		<property name="description"
+			value="
+A diferencia del inglés, su osamenta es más liviana y tiene un paso más ligero, también es más resistente. Lo utilizaban para cazar zorros y en la caza menor, tanto en jaurías como en solitario. " />
+		<property name="groups">
+			<list>
+
+			</list>
+		</property>
+		<property name="dogs">
+			<list>
+
+			</list>
+		</property>
+	</bean>
+	<bean id="breed12" class="domain.Breed">
+		<property name="name" value="American Staffordshire Terrier" />
+		<property name="description"
+			value="Por su fuerza y valentía esta raza ha sido usada como perro de pelea, aunque posee muchas cualidades que lo hacen apto para diversos trabajos. Estos perros son valientes, tenaces, amigables, extremadamente atentos y dedicados. " />
+		<property name="groups">
+			<list>
+
+			</list>
+		</property>
+		<property name="dogs">
+			<list>
+
+			</list>
+		</property>
+	</bean>
+	<bean id="breed13" class="domain.Breed">
+		<property name="name" value="Basset Hound" />
+		<property name="description"
+			value="El Basset Hound es un perro de caza bajito y de cuerpo largo, una de sus características más llamativas son sus largas orejas y el extremadamente desarrollado sentido del olfato. Generalmente se le usa para la caza." />
+		<property name="groups">
+			<list>
+
+			</list>
+		</property>
+		<property name="dogs">
+			<list>
+
+			</list>
+		</property>
+	</bean>
+	<bean id="breed14" class="domain.Breed">
+		<property name="name" value="Beagle" />
+		<property name="description"
+			value="Es un perro alegre, cuya función esencial es la de cazar principalmente a la liebre siguiendo su rastro. Es audaz y desarrolla una gran actividad con determinación y tenacidad. Es alerta, inteligente y posee un temperamento equilibrado." />
+		<property name="groups">
+			<list>
+
+			</list>
+		</property>
+		<property name="dogs">
+			<list>
+
+			</list>
+		</property>
+	</bean>
+	<bean id="breed15" class="domain.Breed">
+		<property name="name" value="Bichon maltés" />
+		<property name="description"
+			value="Esta es una de esas razas que se ha criado por milenios debido a su gran aceptación como mascota. Muy inteligente aunque requiere un poco de paciencia cuando es entrenado. Muy sensitivo prefiere un hogar que sea estable." />
+		<property name="groups">
+			<list>
+
+			</list>
+		</property>
+		<property name="dogs">
+			<list>
+
+			</list>
+		</property>
+	</bean>
+	<bean id="breed16" class="domain.Breed">
+		<property name="name" value="Bobtail" />
+		<property name="description"
+			value="Es un perro fuerte, simétrico, cuadrado, de construcción muy armoniosa y de constitución robusta. Absolutamente nada de debilidad en los miembros. Completamente cubierto de un pelo abundante." />
+		<property name="groups">
+			<list>
+
+			</list>
+		</property>
+		<property name="dogs">
+			<list>
+
+			</list>
+		</property>
+	</bean>
+	<bean id="breed17" class="domain.Breed">
+		<property name="name" value="Bodeguero Andaluz" />
+		<property name="description"
+			value="De color blanco, para poder verlo en la oscuridad de las bodegas o graneros. Perro intranquilo de mirada nerviosa e inteligente, está siempre a la expectativa ante cualquier ruido o movimiento." />
+		<property name="groups">
+			<list>
+
+			</list>
+		</property>
+		<property name="dogs">
+			<list>
+
+			</list>
+		</property>
+	</bean>
+	<bean id="breed18" class="domain.Breed">
+		<property name="name" value="Bóxer" />
+		<property name="description"
+			value="El Boxer es un perro de tamaño mediano, de pelo liso, fuerte, con una estructura corta y cuadrada y huesos fuertes. Su musculatura es seca, fuertemente desarrollada y en relieve. " />
+		<property name="groups">
+			<list>
+
+			</list>
+		</property>
+		<property name="dogs">
+			<list>
+
+			</list>
+		</property>
+	</bean>
+	<bean id="breed19" class="domain.Breed">
+		<property name="name" value="Border Collie" />
+		<property name="description"
+			value="
+Dotado de una inteligencia excepcional, el educador y psicólogo Stanley Coren, sitúa al Border Collie como el número uno en inteligencia funcional y obediencia." />
+		<property name="groups">
+			<list>
+
+			</list>
+		</property>
+		<property name="dogs">
+			<list>
+
+			</list>
+		</property>
+	</bean>
+	<bean id="breed20" class="domain.Breed">
+		<property name="name" value="Caniche" />
+		<property name="description"
+			value="Perro de proporciones medianas, de pelo característicamente rizado, ensortijado o en forma de mechones. Tiene el aspecto de un animal inteligente, constantemente alerta, activo, armoniosamente constituído, y que refleja elegancia y nobleza." />
+		<property name="groups">
+			<list>
+
+			</list>
+		</property>
+		<property name="dogs">
+			<list>
+
+			</list>
+		</property>
+	</bean>
+	<bean id="breed21" class="domain.Breed">
+		<property name="name" value="Carlino" />
+		<property name="description"
+			value="Es indudablemente un perro cuadrado y regordete, 'multum in parvo' (mucha sustancia en pequeño espacio) que lo muestra en su estructura compacta, sus proporciones bien construidas y la dureza de sus músculos." />
+		<property name="groups">
+			<list>
+
+			</list>
+		</property>
+		<property name="dogs">
+			<list>
+
+			</list>
+		</property>
+	</bean>
+	<bean id="breed22" class="domain.Breed">
+		<property name="name" value="Chihuahua" />
+		<property name="description"
+			value="Es un perro de cuerpo compacto, siendo de primordial importancia hacer notar que su cabeza es de forma amanzanada y su cola moderadamente larga llevada en alto arqueada o de semicírculo, con la punta dirigida hacia el lomo" />
+		<property name="groups">
+			<list>
+
+			</list>
+		</property>
+		<property name="dogs">
+			<list>
+
+			</list>
+		</property>
+	</bean>
+	<bean id="breed23" class="domain.Breed">
+		<property name="name" value="Cocker Spaniel" />
+		<property name="description"
+			value="El Cocker Spaniel, actualmente es un perro muy popular como mascota de compañía, para aquellos que disfrutan del campo. " />
+		<property name="groups">
+			<list>
+
+			</list>
+		</property>
+		<property name="dogs">
+			<list>
+
+			</list>
+		</property>
+	</bean>
+	<bean id="breed24" class="domain.Breed">
+		<property name="name" value="Cocker Spaniel Americano" />
+		<property name="description"
+			value="El Cocker Spaniel es el miembro más pequeño de los perros de caza deportivos. Su cuerpo es fuerte, compacto, la cabeza delicadamente modelada y refinada. En conjunto, es un perro bien equilibrado y de un tamaño ideal." />
+		<property name="groups">
+			<list>
+
+			</list>
+		</property>
+		<property name="dogs">
+			<list>
+
+			</list>
+		</property>
+	</bean>
+	<bean id="breed25" class="domain.Breed">
+		<property name="name" value="Dálmata" />
+		<property name="description"
+			value="El Dálmata es el perro blanco de pintas negras que usualmente vemos en las películas. Realmente este perro se crió por lo atractivo que es, sobre todo cuando acompañaba a los coches de la aristocracia."></property>
+		<property name="groups">
+			<list>
+			</list>
+		</property>
+		<property name="dogs">
+			<list>
+			</list>
+		</property>
+	</bean>
+	<bean id="breed26" class="domain.Breed">
+		<property name="name" value="Doberman" />
+		<property name="description"
+			value="Vivaz, vigoroso, valiente, vigilante, tiene una expresión decidida e incluso un poco inquietante. Es un perro de carácter enérgico, orgulloso e impulsivo, que debe ser estable, asentado y sociable." />
+		<property name="groups">
+			<list>
+			</list>
+		</property>
+		<property name="dogs">
+			<list>
+
+			</list>
+		</property>
+	</bean>
+	<bean id="breed27" class="domain.Breed">
+		<property name="name" value="Fox Terrier de Pelo Duro" />
+		<property name="description"
+			value="Perro activo y alegre, de pequeño volumen en el que se combinan huesos de buena sustancia y gran fortaleza física, nunca pesado ni tosco. Su estructura presenta un equilibrio perfecto" />
+		<property name="groups">
+			<list>
+
+			</list>
+		</property>
+		<property name="dogs">
+			<list>
+
+			</list>
+		</property>
+	</bean>
+	<bean id="breed28" class="domain.Breed">
+		<property name="name" value="Foxhound Americano" />
+		<property name="description"
+			value="El Foxhound Americano es un perro de cacería. De tamaño mediano, entre los perros hound es de buen tamaño. Muy buen rastreador con un excelente olfato y de mucha resistencia." />
+		<property name="groups">
+			<list>
+
+			</list>
+		</property>
+		<property name="dogs">
+			<list>
+
+			</list>
+		</property>
+	</bean>
+	<bean id="breed29" class="domain.Breed">
+		<property name="name" value="Foxhound Inglés" />
+		<property name="description"
+			value="El Foxhound Inglés es un perro especializado para la cacería de zorras. Realmente es tan formidable en este oficio que sus dueños demuestran muy poco interés en todo tipo de otras competencias.. " />
+		<property name="groups">
+			<list>
+
+			</list>
+		</property>
+		<property name="dogs">
+			<list>
+
+			</list>
+		</property>
+	</bean>
+	<bean id="breed30" class="domain.Breed">
+		<property name="name" value="Galgo" />
+		<property name="description"
+			value="Perro Lebrel de buen tamaño, eumétrico, subconvexo, sublonguilíneo y dolicocéfalo. De esqueleto compacto, cabeza larga y estrecha, tórax de amplia capacidad, vientre muy retraído, y cola muy larga." />
+		<property name="groups">
+			<list>
+
+			</list>
+		</property>
+		<property name="dogs">
+			<list>
+
+			</list>
+		</property>
+	</bean>
+	<bean id="breed31" class="domain.Breed">
+		<property name="name" value="Greyhound" />
+		<property name="description"
+			value="Es una raza que requiere de un fuerte entrenamiento, ya que lleva en la sangre el instinto corredor y sobre todo el de persecución." />
+		<property name="groups">
+			<list>
+
+			</list>
+		</property>
+		<property name="dogs">
+			<list>
+
+			</list>
+		</property>
+	</bean>
+	<bean id="breed33" class="domain.Breed">
+		<property name="name" value="Gran Danés" />
+		<property name="description"
+			value="El Gran Danés reúne en su aristocrática apariencia general, en una estructura grande y bien dotada, orgullo, fuerza y elegancia." />
+		<property name="groups">
+			<list>
+
+			</list>
+		</property>
+		<property name="dogs">
+			<list>
+
+			</list>
+		</property>
+	</bean>
+	<bean id="breed34" class="domain.Breed">
+		<property name="name" value="Golden Retriever" />
+		<property name="description"
+			value="El Golden Retriever tiene un caracter migable y confiable, carece de agresividad, tanto hacia las personas como hacia sus congéneres (aunque tal vez desconfie de los extraños). Su mirada tierna y melancólica manifiesta su necesidad de afecto." />
+		<property name="groups">
+			<list>
+
+			</list>
+		</property>
+		<property name="dogs">
+			<list>
+
+			</list>
+		</property>
+	</bean>
+	<bean id="breed35" class="domain.Breed">
+		<property name="name" value="Grifón de Bruselas" />
+		<property name="description"
+			value="Pequeño perro de compañía; inteligente, equilibrado, alerta, altivo, robusto, de cuerpo casi cuadrado; con una buena constitución ósea, pero al mismo tiempo elegante en sus movimientos y en su construcción. Llama la atención por su expresión casi humana." />
+		<property name="groups">
+			<list>
+
+			</list>
+		</property>
+		<property name="dogs">
+			<list>
+
+			</list>
+		</property>
+	</bean>
+	<bean id="breed36" class="domain.Breed">
+		<property name="name" value="Husky Siberiano" />
+		<property name="description"
+			value="El Husky siberiano es un perro de trabajo de tamaño mediano, rápido y ligero. Su movimiento es libre y gracioso. Su cuerpo moderadamente compacto y bien cubierto de pelo, las orejas erguidas y la cola tupida con pelo de cepillo es de herencia nórdica." />
+		<property name="groups">
+			<list>
+
+			</list>
+		</property>
+		<property name="dogs">
+			<list>
+
+			</list>
+		</property>
+	</bean>
+	<bean id="breed37" class="domain.Breed">
+		<property name="name" value="Labrador Retriever" />
+		<property name="description"
+			value="Perro de constitución fuerte, región renal corta y muy activo; tiene un cráneo amplio, pecho y costillas amplias y profundas; la región renal y los miembros posteriores son anchos y fuertes. Perro que tiene buen temperamento y es muy ágil." />
+		<property name="groups">
+			<list>
+
+			</list>
+		</property>
+		<property name="dogs">
+			<list>
+
+			</list>
+		</property>
+	</bean>
+	<bean id="breed38" class="domain.Breed">
+		<property name="name" value="Pastor Alemán" />
+		<property name="description"
+			value="El pastor alemán es una de las razas más reconocidas en del mundo. De aspecto noble y carácter leal, ágil e inteligente, fuerte e intrépido, es un perro muy versátil que puede desempeñar una gran variedad de actividades. " />
+		<property name="groups">
+			<list>
+
+			</list>
+		</property>
+		<property name="dogs">
+			<list>
+
+			</list>
+		</property>
+	</bean>
+	<bean id="breed39" class="domain.Breed">
+		<property name="name" value="Papillon" />
+		<property name="description"
+			value="El Papillon es un perro no muy grande de pelo no muy largo que le encanta jugar con su amo. Este es un perro principalmente empleado como mascota de compañía." />
+		<property name="groups">
+			<list>
+
+			</list>
+		</property>
+		<property name="dogs">
+			<list>
+
+			</list>
+		</property>
+	</bean>
+	<bean id="breed40" class="domain.Breed">
+		<property name="name" value="Parson Russell Terrier" />
+		<property name="description"
+			value="Apto para el trabajo, activo, ágil, construido para la velocidad y la resistencia. Da la impresión de balanceado y flexibilidad en su conjunto. Las cicatrices honorables son admisibles" />
+		<property name="groups">
+			<list>
+
+			</list>
+		</property>
+		<property name="dogs">
+			<list>
+
+			</list>
+		</property>
+	</bean>
+	<bean id="breed41" class="domain.Breed">
+		<property name="name" value="Pequinés" />
+		<property name="description"
+			value="Este perro es muy peculiar por su temperamento. Es independiente, testarudo, de muy mal genio y dado a las rutinas. Tiene gustos muy claros y definidos que, si el amo no los cumple, no duda en hacer saber su descontento. " />
+		<property name="groups">
+			<list>
+
+			</list>
+		</property>
+		<property name="dogs">
+			<list>
+
+			</list>
+		</property>
+	</bean>
+	<bean id="breed42" class="domain.Breed">
+		<property name="name" value="Perdiguero de Drente" />
+		<property name="description"
+			value="Perro bien proporcionado, secamente musculado y de estructura de corte bien definido, cuyo cuerpo muestra poder y también habilidad para desarrollar la velocidad necesaria para un perro de caza." />
+		<property name="groups">
+			<list>
+
+			</list>
+		</property>
+		<property name="dogs">
+			<list>
+
+			</list>
+		</property>
+	</bean>
+	<bean id="breed43" class="domain.Breed">
+		<property name="name" value="Pinscher" />
+		<property name="description"
+			value="El Pinscher de pelo corto y liso representa a una raza muy antigua, incluida en los libros de registro alemanes en 1880. Tiene los mismos antecesores del Schnauzer, por lo que también era llamado Pinscher de pelo áspero. " />
+		<property name="groups">
+			<list>
+
+			</list>
+		</property>
+		<property name="dogs">
+			<list>
+
+			</list>
+		</property>
+	</bean>
+	<bean id="breed44" class="domain.Breed">
+		<property name="name" value="Pointer" />
+		<property name="description"
+			value="Ha sido definido como el “perro de caza por excelencia”, con una velocidad y olfato increíbles, será el orgullo de cualquier cazador que se precie." />
+		<property name="groups">
+			<list>
+
+			</list>
+		</property>
+		<property name="dogs">
+			<list>
+
+			</list>
+		</property>
+	</bean>
+	<bean id="breed45" class="domain.Breed">
+		<property name="name" value="Pomerania" />
+		<property name="description"
+			value="Los Spitz llaman la atención por su hermoso pelaje separado con la presencia de una lanilla interna muy tupida. Es llamativo el cuello rodeado de una melena abundante y la cola cubierta de pelo largo." />
+		<property name="groups">
+			<list>
+
+			</list>
+		</property>
+		<property name="dogs">
+			<list>
+
+			</list>
+		</property>
+	</bean>
+	<bean id="breed46" class="domain.Breed">
+		<property name="name" value="Rottweiler" />
+		<property name="description"
+			value="El Rottweiler es una de las razas más antiguas. Su origen data desde los tiempos de los romanos. En ése entonces se le poseía como perro de protección y conducción de ganado. " />
+		<property name="groups">
+			<list>
+
+			</list>
+		</property>
+		<property name="dogs">
+			<list>
+
+			</list>
+		</property>
+	</bean>
+	<bean id="breed47" class="domain.Breed">
+		<property name="name" value="San Bernardo" />
+		<property name="description"
+			value="El San Bernardo es un perro de gran tamaño y fortaleza. Buen aprendíz gracias a su inteligencia superior. De cabeza maciza con hocico corto, stop marcado y bien definido. Belfos muy desarrollados y colgantes. Bien proporcionado. " />
+		<property name="groups">
+			<list>
+
+			</list>
+		</property>
+		<property name="dogs">
+			<list>
+
+			</list>
+		</property>
+	</bean>
+	<bean id="breed48" class="domain.Breed">
+		<property name="name" value="Shar Pei" />
+		<property name="description"
+			value="El Shar Pei se destaca por su temperamento sereno y equilibrado. Es un animal independiente y de un solo amo. Dependiendo del animal y su crianza, en ocasiones puede parecer autista." />
+		<property name="groups">
+			<list>
+
+			</list>
+		</property>
+		<property name="dogs">
+			<list>
+
+			</list>
+		</property>
+	</bean>
+	<bean id="breed49" class="domain.Breed">
+		<property name="name" value="Staffordshire Bull Terrier" />
+		<property name="description"
+			value="Magnífico perro de compañía y guardián del hogar. Realmente este perro es muy popular entre las mascotas. Excepcional con los niños de la casa, pero no se pueden permitir los abusos infantiles." />
+		<property name="groups">
+			<list>
+
+			</list>
+		</property>
+		<property name="dogs">
+			<list>
+
+			</list>
+		</property>
+	</bean>
+	<bean id="breed50" class="domain.Breed">
+		<property name="name" value="Tejonero de Westfalia" />
+		<property name="description"
+			value="El Perro tejonero de Westfalia es un ejemplar que mide entre 30 a 38 cm de altura, con la típica estructura moderadamente larga y fuerte de un perro cazador, con una cabeza noble de tamaño mediano y cola bien implantada." />
+		<property name="groups">
+			<list>
+
+			</list>
+		</property>
+		<property name="dogs">
+			<list>
+
+			</list>
+		</property>
+	</bean>
+	<bean id="breed51" class="domain.Breed">
+		<property name="name" value="Teckel" />
+		<property name="description"
+			value="Es un perro amable, inteligente y muy casero, aunque también se dice que es muy celoso y que siempre anda reclamando cariño. Suele ser bastante testarudo y algo reacio al adiestramiento, que debe empezarse desde muy joven" />
+		<property name="groups">
+			<list>
+
+			</list>
+		</property>
+		<property name="dogs">
+			<list>
+
+			</list>
+		</property>
+	</bean>
+	<bean id="breed52" class="domain.Breed">
+		<property name="name" value="Terranova" />
+		<property name="description"
+			value="Esta raza se originó en la isla de Newfoundland y desciende de los perros autóctonos y del gran perro oso de color negro que fue introducido por los Vikingos después del año 1100." />
+		<property name="groups">
+			<list>
+
+			</list>
+		</property>
+		<property name="dogs">
+			<list>
+
+			</list>
+		</property>
+	</bean>
+	<bean id="breed32" class="domain.Breed">
+		<property name="name" value="Yorkshire terrier" />
+		<property name="description"
+			value="El Yorkshire Terrier es una de las mejores razas para la familia. Compañero muy fiel y cariñoso, es un perro activo y que se adapta perfectamente a un piso o a un entorno de campo." />
+		<property name="groups">
+			<list>
+
+			</list>
+		</property>
+		<property name="dogs">
+			<list>
+
+			</list>
+		</property>
+	</bean>
+	<bean id="breed53" class="domain.Breed">
+		<property name="name" value="West Highland White Terrier" />
+		<property name="description"
+			value="El West Highland desciende del Cairn Terrier y algunas de sus características son la tenacidad y agresión hacia su presa, que originalmente fueron el conejo y animales más pequeños como roedores." />
+		<property name="groups">
+			<list>
+
+			</list>
+		</property>
+		<property name="dogs">
+			<list>
+
+			</list>
+		</property>
+	</bean>
+	<!-- Folders -->
+
+	<bean id="inbox1" class="domain.Folder">
+		<property name="name" value="Inbox" />
+		<property name="participant" ref="participant1" />
+		<property name="messages">
+			<list>
+				<ref bean="message2" />
+				<ref bean="message4" />
+			</list>
+		</property>
+	</bean>
+	<bean id="outbox1" class="domain.Folder">
+		<property name="name" value="Outbox" />
+		<property name="participant" ref="participant1" />
+		<property name="messages">
+			<list>
+				<ref bean="message1" />
+				<ref bean="message3" />
+			</list>
+		</property>
+	</bean>
+	<bean id="inbox2" class="domain.Folder">
+		<property name="name" value="Inbox" />
+		<property name="participant" ref="participant2" />
+		<property name="messages">
+			<list>
+				<ref bean="message1" />
+				<ref bean="message3" />
+			</list>
+		</property>
+	</bean>
+	<bean id="outbox2" class="domain.Folder">
+		<property name="name" value="Outbox" />
+		<property name="participant" ref="participant2" />
+		<property name="messages">
+			<list>
+				<ref bean="message2" />
+				<ref bean="message4" />
+			</list>
+		</property>
+	</bean>
+
+	<!-- Messages -->
+
+	<bean id="message1" class="domain.Message">
+		<property name="moment" value="2016/05/10" />
+		<property name="subject" value="Próxima exposición" />
+		<property name="body"
+			value="Buenas amigo, para la próxima exposición a ver si nos vamos juntos y hablamos lo de la monta de los perros." />
+		<property name="sender" ref="participant1" />
+		<property name="receiver" ref="participant2" />
+		<property name="folders">
+			<list>
+				<ref bean="inbox2" />
+				<ref bean="outbox1" />
+			</list>
+		</property>
+	</bean>
+	<bean id="message2" class="domain.Message">
+		<property name="moment" value="2016/05/11" />
+		<property name="subject" value="Próxima exposición" />
+		<property name="body"
+			value="Qué pasa tío, pues yo llevo el remolque para los perros y tu pones tu furgo, te parece?" />
+		<property name="sender" ref="participant2" />
+		<property name="receiver" ref="participant1" />
+		<property name="folders">
+			<list>
+				<ref bean="inbox1" />
+				<ref bean="outbox2" />
+			</list>
+		</property>
+	</bean>
+	<bean id="message3" class="domain.Message">
+		<property name="moment" value="2016/05/12" />
+		<property name="subject" value="Perfecto" />
+		<property name="body"
+			value="Flama de la rama cabesa, nos vemos donde siempre y ya concretamos hora cuando vea mi curro vale?" />
+		<property name="sender" ref="participant1" />
+		<property name="receiver" ref="participant2" />
+		<property name="folders">
+			<list>
+				<ref bean="inbox2" />
+				<ref bean="outbox1" />
+			</list>
+		</property>
+	</bean>
+	<bean id="message4" class="domain.Message">
+		<property name="moment" value="2016/05/13" />
+		<property name="subject" value="PERFE TIO" />
+		<property name="body" value="Perfe cabesoide yo llevo las litros!" />
+		<property name="sender" ref="participant2" />
+		<property name="receiver" ref="participant1" />
+		<property name="folders">
+			<list>
+				<ref bean="inbox1" />
+				<ref bean="outbox2" />
+			</list>
+		</property>
+	</bean>
+
+	<!-- Competitions -->
+
+	<bean id="competition1" class="domain.Competition">
+		<property name="title" value="Exposición de Mordor" />
+		<property name="type" value="BEAUTY" />
+		<property name="adress"
+			value="Calle mordor número 1, detras del ojo de Sauron" />
+		<property name="inscriptionPrice" value="12.5" />
+		<property name="firstPrize" value="El anillo único" />
+		<property name="secondPrize" value="La maza de sauron" />
+		<property name="thirdPrize" value="Un peluche de Gollum" />
+		<property name="minimumPoints" value="0" />
+		<property name="resultsPublished" value="true" />
+		<property name="celebrationDate" value="2017/01/01" />
+		<property name="inscriptionLimitDate" value="2016/12/12" />
+		<property name="organiser" ref="organiser1" />
+		<property name="judges">
+			<list>
+				<ref bean="judge1" />
+				<ref bean="judge2" />
+			</list>
+		</property>
+		<property name="results">
+			<list>
+				<ref bean="result1" />
+				<ref bean="result3" />
+			</list>
+		</property>
+		<property name="groups">
+			<list>
+				<ref bean="group1" />
+			</list>
+		</property>
+	</bean>
+	<bean id="competition2" class="domain.Competition">
+		<property name="title" value="Prueba de trabajo de mordor" />
+		<property name="type" value="WORK" />
+		<property name="adress" value="Calle Gollum, junto a la heladería Orcolados" />
+		<property name="inscriptionPrice" value="10.3" />
+		<property name="firstPrize" value="Carne de Troll para 1 año" />
+		<property name="secondPrize" value="Saco de pienso marca'Ella Laraña'" />
+		<property name="thirdPrize" value="Juguete para perro de Frodo y Sam" />
+		<property name="minimumPoints" value="0" />
+		<property name="resultsPublished" value="false" />
+		<property name="celebrationDate" value="2017/01/01" />
+		<property name="inscriptionLimitDate" value="2016/12/12" />
+		<property name="organiser" ref="organiser1" />
+		<property name="judges">
+			<list>
+				<ref bean="judge1" />
+			</list>
+		</property>
+		<property name="results">
+			<list>
+				<ref bean="result2" />
+			</list>
+		</property>
+		<property name="groups">
+			<list>
+				<ref bean="group2" />
+			</list>
+		</property>
+	</bean>
+	<bean id="competition3" class="domain.Competition">
+		<property name="title" value="Exposición de belleza de Sevilla" />
+		<property name="type" value="BEAUTY" />
+		<property name="adress" value="FIBES Sevilla" />
+		<property name="inscriptionPrice" value="11.20" />
+		<property name="firstPrize" value="Trofeo ganador y 2 sacos de pienso" />
+		<property name="secondPrize" value="10 mordedores para perro" />
+		<property name="thirdPrize" value="Medalla" />
+		<property name="minimumPoints" value="5" />
+		<property name="resultsPublished" value="false" />
+		<property name="celebrationDate" value="2017/06/30" />
+		<property name="inscriptionLimitDate" value="2017/06/10" />
+		<property name="organiser" ref="organiser1" />
+		<property name="judges">
+			<list>
+				<ref bean="judge1" />
+			</list>
+		</property>
+		<property name="results">
+			<list>
+			</list>
+		</property>
+		<property name="groups">
+			<list>
+				<ref bean="group4" />
+			</list>
+		</property>
+	</bean>
+	<bean id="competition4" class="domain.Competition">
+		<property name="title" value="Prueba de trabajo en La Comarca" />
+		<property name="type" value="WORK" />
+		<property name="adress" value="Detas de Bolsón Cerrado" />
+		<property name="inscriptionPrice" value="0" />
+		<property name="firstPrize" value="Trofeo Hobbit: Primer puesto" />
+		<property name="secondPrize" value="Medalla segundo puesto" />
+		<property name="thirdPrize" value="Medalla tercer puesto" />
+		<property name="minimumPoints" value="0" />
+		<property name="resultsPublished" value="false" />
+		<property name="celebrationDate" value="2017/02/20" />
+		<property name="inscriptionLimitDate" value="2017/01/10" />
+		<property name="organiser" ref="organiser2" />
+		<property name="judges">
+			<list>
+				<ref bean="judge2" />
+			</list>
+		</property>
+		<property name="results">
+			<list>
+			</list>
+		</property>
+		<property name="groups">
+			<list>
+				<ref bean="group3" />
+			</list>
+		</property>
+	</bean>
+	<bean id="competition5" class="domain.Competition">
+		<property name="title" value="Exposición de belleza de Cordoba" />
+		<property name="type" value="BEAUTY" />
+		<property name="adress" value="Calle falsa 123 Cordoba" />
+		<property name="inscriptionPrice" value="15.20" />
+		<property name="firstPrize" value="Set peluquería perro" />
+		<property name="secondPrize" value="Set baño perro" />
+		<property name="thirdPrize" value="Cama para perro" />
+		<property name="minimumPoints" value="0" />
+		<property name="resultsPublished" value="false" />
+		<property name="celebrationDate" value="2017/07/20" />
+		<property name="inscriptionLimitDate" value="2017/06/10" />
+		<property name="organiser" ref="organiser2" />
+		<property name="judges">
+			<list>
+				<ref bean="judge2" />
+			</list>
+		</property>
+		<property name="results">
+			<list>
+			</list>
+		</property>
+		<property name="groups">
+			<list>
+			</list>
+		</property>
+	</bean>
+	<bean id="competition6" class="domain.Competition">
+		<property name="title" value="Concurso monográfico Sevilla" />
+		<property name="type" value="BEAUTY" />
+		<property name="adress" value="FIBES Sevilla" />
+		<property name="inscriptionPrice" value="0.0" />
+		<property name="firstPrize" value="10 Sacos de pienso" />
+		<property name="secondPrize" value="1 Saco pienso" />
+		<property name="thirdPrize" value="Libro 'Cómo mejorar a tu perro'" />
+		<property name="minimumPoints" value="10" />
+		<property name="resultsPublished" value="false" />
+		<property name="celebrationDate" value="2017/10/12" />
+		<property name="inscriptionLimitDate" value="2017/09/09" />
+		<property name="organiser" ref="organiser2" />
+		<property name="judges">
+			<list>
+				<ref bean="judge2" />
+			</list>
+		</property>
+		<property name="results">
+			<list>
+			</list>
+		</property>
+		<property name="groups">
+			<list>
+			</list>
+		</property>
+	</bean>
+
+	<!-- Groupss -->
+
+	<bean id="group1" class="domain.Groups">
+		<property name="numberOfDogs" value="10" />
+		<property name="ring" value="1" />
+		<property name="competition" ref="competition1" />
+		<property name="breed" ref="breed1" />
+		<property name="dogs">
+			<list>
+				<ref bean="dog1" />
+				<ref bean="dog3" />
+			</list>
+		</property>
+	</bean>
+	<bean id="group2" class="domain.Groups">
+		<property name="numberOfDogs" value="5" />
+		<property name="ring" value="1" />
+		<property name="competition" ref="competition2" />
+		<property name="breed" ref="breed2" />
+		<property name="dogs">
+			<list>
+				<ref bean="dog2" />
+			</list>
+		</property>
+	</bean>
+	<bean id="group3" class="domain.Groups">
+		<property name="numberOfDogs" value="15" />
+		<property name="ring" value="1" />
+		<property name="competition" ref="competition4" />
+		<property name="breed" ref="breed3" />
+		<property name="dogs">
+			<list>
+				<ref bean="dog4" />
+			</list>
+		</property>
+	</bean>
+	<bean id="group4" class="domain.Groups">
+		<property name="numberOfDogs" value="15" />
+		<property name="ring" value="1" />
+		<property name="competition" ref="competition3" />
+		<property name="breed" ref="breed1" />
+		<property name="dogs">
+			<list>
+			</list>
+		</property>
+	</bean>
+
+	<!-- Dogs -->
+
+	<bean id="dog1" class="domain.Dog">
+		<property name="name" value="PaulNewman de Labahia" />
+		<property name="nickname" value="Paul" />
+		<property name="weight" value="21" />
+		<property name="height" value="46.2" />
+		<property name="sex" value="MALE" />
+		<property name="totalPoints" value="20" />
+		<property name="canParticipate" value="true" />
+		<property name="request" ref="request1" />
+		<property name="participant" ref="participant1" />
+		<property name="breed" ref="breed1" />
+		<property name="results">
+			<list>
+				<ref bean="result1" />
+			</list>
+		</property>
+		<property name="groups">
+			<list>
+				<ref bean="group1" />
+			</list>
+		</property>
+	</bean>
+	<bean id="dog2" class="domain.Dog">
+		<property name="name" value="Rainbow de TenderTeddy" />
+		<property name="nickname" value="Lego" />
+		<property name="weight" value="25" />
+		<property name="height" value="48.2" />
+		<property name="sex" value="MALE" />
+		<property name="totalPoints" value="20" />
+		<property name="canParticipate" value="true" />
+		<property name="request" ref="request2" />
+		<property name="participant" ref="participant1" />
+		<property name="breed" ref="breed2" />
+		<property name="results">
+			<list>
+				<ref bean="result2" />
+			</list>
+		</property>
+		<property name="groups">
+			<list>
+				<ref bean="group2" />
+			</list>
+		</property>
+	</bean>
+	<bean id="dog3" class="domain.Dog">
+		<property name="name" value="Parafina de LasMalasLenguas" />
+		<property name="nickname" value="Lola" />
+		<property name="weight" value="17" />
+		<property name="height" value="44" />
+		<property name="sex" value="FEMALE" />
+		<property name="totalPoints" value="15" />
+		<property name="canParticipate" value="true" />
+		<property name="request" ref="request3" />
+		<property name="participant" ref="participant2" />
+		<property name="breed" ref="breed1" />
+		<property name="results">
+			<list>
+				<ref bean="result3" />
+			</list>
+		</property>
+		<property name="groups">
+			<list>
+				<ref bean="group1" />
+			</list>
+		</property>
+	</bean>
+	<bean id="dog4" class="domain.Dog">
+		<property name="name" value="Rizogordo de TenderTeddy" />
+		<property name="nickname" value="Diablo" />
+		<property name="weight" value="45" />
+		<property name="height" value="75" />
+		<property name="sex" value="MALE" />
+		<property name="totalPoints" value="20" />
+		<property name="canParticipate" value="true" />
+		<property name="request" ref="request4" />
+		<property name="participant" ref="participant2" />
+		<property name="breed" ref="breed3" />
+		<property name="results">
+			<list>
+			</list>
+		</property>
+		<property name="groups">
+			<list>
+				<ref bean="group3" />
+			</list>
+		</property>
+	</bean>
+	<bean id="dog5" class="domain.Dog">
+		<property name="name" value="Croqueta de Labahia" />
+		<property name="nickname" value="Croque" />
+		<property name="weight" value="18" />
+		<property name="height" value="41" />
+		<property name="sex" value="FEMALE" />
+		<property name="totalPoints" value="0" />
+		<property name="canParticipate" value="false" />
+		<property name="request" ref="request5" />
+		<property name="participant" ref="participant1" />
+		<property name="breed" ref="breed1" />
+		<property name="father" ref="dog1" />
+		<property name="mother" ref="dog3" />
+		<property name="results">
+			<list>
+			</list>
+		</property>
+		<property name="groups">
+			<list>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="dog6" class="domain.Dog">
+		<property name="name" value="Croqueta de Labahia2" />
+		<property name="nickname" value="Croque2" />
+		<property name="weight" value="18" />
+		<property name="height" value="41" />
+		<property name="sex" value="FEMALE" />
+		<property name="totalPoints" value="0" />
+		<property name="canParticipate" value="false" />
+		<property name="participant" ref="participant1" />
+		<property name="breed" ref="breed1" />
+
+		<property name="results">
+			<list>
+			</list>
+		</property>
+		<property name="groups">
+			<list>
+			</list>
+		</property>
+	</bean>
+
+	<!-- Request -->
+
+	<bean id="request1" class="domain.Request">
+		<property name="code" value="Paulnewman898" />
+		<property name="title" value="Paulnewman" />
+		<property name="creationMoment" value="2016/09/09" />
+		<property name="status" value="ACCEPTED" />
+		<property name="comment" value="" />
+		<property name="description" value="Paul, el perrancano" />
+		<property name="administrator" ref="administrator1" />
+		<property name="dog" ref="dog1" />
+	</bean>
+	<bean id="request2" class="domain.Request">
+		<property name="code" value="Rainbow768" />
+		<property name="title" value="Rainbow" />
+		<property name="creationMoment" value="2016/11/14" />
+		<property name="status" value="ACCEPTED" />
+		<property name="comment" value="" />
+		<property name="description" value="Mi Lego guapo" />
+		<property name="administrator" ref="administrator1" />
+		<property name="dog" ref="dog2" />
+	</bean>
+	<bean id="request3" class="domain.Request">
+		<property name="code" value="Parafina145" />
+		<property name="title" value="Parafina" />
+		<property name="creationMoment" value="2016/10/11" />
+		<property name="status" value="ACCEPTED" />
+		<property name="comment" value="" />
+		<property name="description" value="Mi Lola bonita" />
+		<property name="administrator" ref="administrator1" />
+		<property name="dog" ref="dog3" />
+	</bean>
+	<bean id="request4" class="domain.Request">
+		<property name="code" value="Rizogordo143" />
+		<property name="title" value="Rizogordo" />
+		<property name="creationMoment" value="2016/12/12" />
+		<property name="status" value="ACCEPTED" />
+		<property name="comment" value="" />
+		<property name="description" value="Mi perro diablo, es muy bonito" />
+		<property name="administrator" ref="administrator1" />
+		<property name="dog" ref="dog4" />
+	</bean>
+	<bean id="request5" class="domain.Request">
+		<property name="code" value="Croqueta123" />
+		<property name="title" value="Croqueta" />
+		<property name="creationMoment" value="2016/11/5" />
+		<property name="status" value="PENDING" />
+		<property name="comment" value="" />
+		<property name="description" value="Porfavoh acepta a mi perro!" />
+		<property name="administrator" ref="administrator1" />
+		<property name="dog" ref="dog5" />
+	</bean>
+	<!-- Judges -->
+
+	<bean id="judge1" class="domain.Judge">
+		<property name="name" value="Patricia" />
+		<property name="surname" value="Martínez" />
+		<property name="email" value="patrimartinez@gmail.com" />
+		<property name="phone" value="662296854" />
+		<property name="homePage" value="http://www.patrimartinez.com/" />
+		<property name="nationality" value="Spanish" />
+		<property name="userAccount" ref="userAccount6" />
+		<property name="judgeNumber" value="123456789" />
+		<property name="competitions">
+			<list>
+				<ref bean="competition1" />
+				<ref bean="competition2" />
+				<ref bean="competition3" />
+			</list>
+		</property>
+		<property name="results">
+			<list>
+				<ref bean="result1" />
+				<ref bean="result2" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="judge2" class="domain.Judge">
+		<property name="name" value="Antonio" />
+		<property name="surname" value="Reina" />
+		<property name="email" value="antReina@gmail.com" />
+		<property name="phone" value="662786854" />
+		<property name="homePage" value="http://www.areina.com/" />
+		<property name="nationality" value="Spanish" />
+		<property name="userAccount" ref="userAccount7" />
+		<property name="judgeNumber" value="987654321" />
+		<property name="competitions">
+			<list>
+				<ref bean="competition1" />
+				<ref bean="competition4" />
+				<ref bean="competition5" />
+				<ref bean="competition6" />
+			</list>
+		</property>
+		<property name="results">
+			<list>
+				<ref bean="result3" />
+			</list>
+		</property>
+	</bean>
+	<!-- Results -->
+
+	<bean id="result1" class="domain.Result">
+		<property name="position" value="1" />
+		<property name="comment" value="CAC Mejor perro de la exposición" />
+		<property name="points" value="20" />
+		<property name="competition" ref="competition1" />
+		<property name="dog" ref="dog1" />
+		<property name="judge" ref="judge1" />
+	</bean>
+	<bean id="result2" class="domain.Result">
+		<property name="position" value="1" />
+		<property name="comment" value="Mejor perro absoluto" />
+		<property name="points" value="20" />
+		<property name="competition" ref="competition2" />
+		<property name="dog" ref="dog2" />
+		<property name="judge" ref="judge1" />
+	</bean>
+	<bean id="result3" class="domain.Result">
+		<property name="position" value="2" />
+		<property name="comment"
+			value="Perro casi perfecto, problema al dejarse ver los dientes" />
+		<property name="points" value="15" />
+		<property name="competition" ref="competition1" />
+		<property name="dog" ref="dog3" />
+		<property name="judge" ref="judge2" />
+	</bean>
+</beans> 

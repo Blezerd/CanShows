@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+	<definition name="dog/list" extends="master.page">
+		<put-attribute name="title"
+			value="Lista de perros ordenados por puntos" />
+		<put-attribute name="body" value="/views/dog/list.jsp" />
+	</definition>
+	<definition name="dog/details" extends="master.page">
+		<put-attribute name="title" value="Detalles del perro" />
+		<put-attribute name="body" value="/views/dog/details.jsp" />
+	</definition>
+	<definition name="dog/participant/addFather" extends="master.page">
+		<put-attribute name="title" value="Registrar padre" />
+		<put-attribute name="body" value="/views/dog/addFOM.jsp" />
+	</definition>
+	<definition name="dog/participant/addMother" extends="master.page">
+		<put-attribute name="title" value="Registrar madre" />
+		<put-attribute name="body" value="/views/dog/addFOM.jsp" />
+	</definition>
+	<definition name="dog/participant/list" extends="master.page">
+		<put-attribute name="title" value="Mis perros" />
+		<put-attribute name="body" value="/views/dog/list.jsp" />
+	</definition>
+	<definition name="dog/participant/create" extends="master.page">
+		<put-attribute name="title" value="Registrar nuevo perro" />
+		<put-attribute name="body" value="/views/dog/create.jsp" />
+	</definition>
+	<definition name="dog/participant/listFriend" extends="master.page">
+		<put-attribute name="title" value="Perros de mi amigo" />
+		<put-attribute name="body" value="/views/dog/list.jsp" />
+	</definition>
+</tiles-definitions>

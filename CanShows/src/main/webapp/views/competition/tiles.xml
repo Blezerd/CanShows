@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+	<definition name="competition/list" extends="master.page">
+		<put-attribute name="title" value="Available competitions" />
+		<put-attribute name="body" value="/views/competition/list.jsp" />
+	</definition>
+	<definition name="competition/details" extends="master.page">
+		<put-attribute name="title" value="Competition's details" />
+		<put-attribute name="body" value="/views/competition/details.jsp" />
+	</definition>
+	<definition name="competition/judge/list" extends="master.page">
+		<put-attribute name="title" value="Competitions where I'm judge" />
+		<put-attribute name="body" value="/views/competition/list.jsp" />
+	</definition>
+	<definition name="competition/judge/details" extends="master.page">
+		<put-attribute name="title" value="Competition's details" />
+		<put-attribute name="body" value="/views/competition/details.jsp" />
+	</definition>
+	<definition name="competition/participant/list" extends="master.page">
+		<put-attribute name="title" value="Competitions where I participate" />
+		<put-attribute name="body" value="/views/competition/list.jsp" />
+	</definition>
+	<definition name="competition/participant/join" extends="master.page">
+		<put-attribute name="title" value="Select group for inscription" />
+		<put-attribute name="body" value="/views/competition/join.jsp" />
+	</definition>
+	<definition name="competition/participant/joinCompetition"
+		extends="master.page">
+		<put-attribute name="title" value="Inscribe dog in the competition" />
+		<put-attribute name="body"
+			value="/views/competition/joinCompetition.jsp" />
+	</definition>
+	<definition name="competition/participant/details" extends="master.page">
+		<put-attribute name="title" value="Competition's details" />
+		<put-attribute name="body" value="/views/competition/details.jsp" />
+	</definition>
+	<definition name="competition/organiser/list" extends="master.page">
+		<put-attribute name="title" value="My competitions" />
+		<put-attribute name="body" value="/views/competition/list.jsp" />
+	</definition>
+	<definition name="competition/organiser/details" extends="master.page">
+		<put-attribute name="title" value="Competition's details" />
+		<put-attribute name="body" value="/views/competition/details.jsp" />
+	</definition>
+	<definition name="competition/organiser/create" extends="master.page">
+		<put-attribute name="title" value="Create new competition" />
+		<put-attribute name="body" value="/views/competition/create.jsp" />
+	</definition>
+	<definition name="competition/organiser/edit" extends="master.page">
+		<put-attribute name="title" value="Change dates of competition" />
+		<put-attribute name="body" value="/views/competition/create.jsp" />
+	</definition>
+	<definition name="competition/organiser/addJudge" extends="master.page">
+		<put-attribute name="title" value="Add judge to competition" />
+		<put-attribute name="body" value="/views/competition/addJudge.jsp" />
+	</definition>
+	<definition name="competition/organiser/addGroup" extends="master.page">
+		<put-attribute name="title" value="Add a new group to the competition" />
+		<put-attribute name="body" value="/views/competition/addGroup.jsp" />
+	</definition>
+	<definition name="competition/judge/judge" extends="master.page">
+		<put-attribute name="title" value="Juzge the competition" />
+		<put-attribute name="body" value="/views/competition/judge.jsp" />
+	</definition>
+	<definition name="competition/judge/judgeDog" extends="master.page">
+		<put-attribute name="title" value="Juzge dog" />
+		<put-attribute name="body" value="/views/competition/judgeDog.jsp" />
+	</definition>
+</tiles-definitions>

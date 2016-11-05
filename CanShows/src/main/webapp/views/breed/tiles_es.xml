@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+	<definition name="breed/details" extends="master.page">
+		<put-attribute name="title" value="Detalles de la raza" />
+		<put-attribute name="body" value="/views/breed/details.jsp" />
+	</definition>
+	<definition name="breed/administrator/create" extends="master.page">
+		<put-attribute name="title" value="Registrar nueva raza" />
+		<put-attribute name="body" value="/views/breed/create.jsp" />
+	</definition>
+	
+	<definition name="breed/administrator/list" extends="master.page">
+		<put-attribute name="title" value="Lista de razas" />
+		<put-attribute name="body" value="/views/breed/list.jsp" />
+	</definition>
+</tiles-definitions>

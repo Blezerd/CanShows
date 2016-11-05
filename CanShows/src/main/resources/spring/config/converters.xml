@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- * converters.xml * * Copyright (C) 2014 Universidad de Sevilla * * The 
+	use of this project is hereby constrained to the conditions of the * TDG 
+	Licence, a copy of which you may download from * http://www.tdg-seville.info/License.html -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd		
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd">
+
+	<util:list id="converters">
+		<bean class="converters.AdministratorToStringConverter" />
+		<bean class="converters.AuthorityToStringConverter" />
+		<bean class="converters.UserAccountToStringConverter" />
+		<bean class="converters.OrganiserToStringConverter" />
+		<bean class="converters.BreedToStringConverter" />
+		<bean class="converters.CompetitionToStringConverter" />
+		<bean class="converters.DogToStringConverter" />
+		<bean class="converters.FolderToStringConverter" />
+		<bean class="converters.GroupToStringConverter" />
+		<bean class="converters.JudgeToStringConverter" />
+		<bean class="converters.MessageToStringConverter" />
+		<bean class="converters.ParticipantToStringConverter" />
+		<bean class="converters.RequestToStringConverter" />
+		<bean class="converters.ResultToStringConverter" />
+
+
+		<bean class="converters.StringToAdministratorConverter" />
+		<bean class="converters.StringToAuthorityConverter" />
+		<bean class="converters.StringToUserAccountConverter" />
+		<bean class="converters.StringToOrganiserConverter" />
+		<bean class="converters.StringToBreedConverter" />
+		<bean class="converters.StringToCompetitionConverter" />
+		<bean class="converters.StringToDogConverter" />
+		<bean class="converters.StringToFolderConverter" />
+		<bean class="converters.StringToGroupConverter" />
+		<bean class="converters.StringToJudgeConverter" />
+		<bean class="converters.StringToMessageConverter" />
+		<bean class="converters.StringToParticipantConverter" />
+		<bean class="converters.StringToRequestConverter" />
+		<bean class="converters.StringToResultConverter" />
+
+
+
+	</util:list>
+
+</beans>

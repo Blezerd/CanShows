@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- * tiles_es.xml * * Copyright (C) 2013 Universidad de Sevilla * * The 
+	use of this project is hereby constrained to the conditions of the * TDG 
+	Licence, a copy of which you may download from * http://www.tdg-seville.info/License.html -->
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+
+	<definition name="dashboard/administrator/organisersWithCompetition"
+		extends="master.page">
+		<put-attribute name="title"
+			value="Lista de organizadores con el número de concursos que organiza" />
+		<put-attribute name="body" value="/views/dashboard/dashboard.jsp" />
+	</definition>
+
+	<definition name="dashboard/administrator/bestDog" extends="master.page">
+		<put-attribute name="title" value="Mejor perro" />
+		<put-attribute name="body" value="/views/dashboard/dashboard.jsp" />
+	</definition>
+
+	<definition name="dashboard/administrator/judgeWithCompetitions"
+		extends="master.page">
+		<put-attribute name="title"
+			value="Lista de jueces con el número de concursos que juzga y el número de resultados" />
+		<put-attribute name="body" value="/views/dashboard/dashboard.jsp" />
+	</definition>
+
+
+
+
+</tiles-definitions>
