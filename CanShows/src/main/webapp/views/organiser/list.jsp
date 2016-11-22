@@ -10,7 +10,7 @@
 
 <div>
 	<display:table name="organisers" requestURI="organiser/${actor}list.do"
-		id="row" pagesize="5" class="displayTag">
+		id="row" pagesize="5" class="datagrid">
 		<display:column property="name" titleKey="organiser.name"
 			sortable="true" />
 		<display:column property="surname" titleKey="organiser.surname"

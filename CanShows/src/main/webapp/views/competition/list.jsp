@@ -11,7 +11,7 @@
 <div>
 	<display:table name="competitions"
 		requestURI="competition/${actor}list.do${requestUri}" id="competition"
-		pagesize="5" class="displayTag">
+		pagesize="5" class="datagrid">
 
 		<display:column property="title" titleKey="competition.title"
 			sortable="true" />

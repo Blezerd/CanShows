@@ -11,7 +11,7 @@
 <div>
 	<display:table name="breeds"
 		requestURI="breed/${actor}list.do${requestUri}" id="breed"
-		pagesize="5" class="displayTag">
+		pagesize="5" class="datagrid">
 		<security:authorize access="hasRole('ADMIN')">
 		<display:column property="name" titleKey="breed.name" sortable="true" />
 		<display:column property="description" titleKey="breed.description"

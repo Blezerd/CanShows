@@ -16,7 +16,10 @@
 			value="Lista de organizadores con el número de concursos que organiza" />
 		<put-attribute name="body" value="/views/dashboard/dashboard.jsp" />
 	</definition>
-
+	<definition name="dashboard/administrator/map" extends="master.page">
+		<put-attribute name="title" value="Mapa" />
+		<put-attribute name="body" value="/views/dashboard/dashboard.jsp" />
+	</definition>
 	<definition name="dashboard/administrator/bestDog" extends="master.page">
 		<put-attribute name="title" value="Mejor perro" />
 		<put-attribute name="body" value="/views/dashboard/dashboard.jsp" />

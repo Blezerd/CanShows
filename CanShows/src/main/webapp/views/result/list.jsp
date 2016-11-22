@@ -20,7 +20,7 @@
 		<security:authorize access="hasRole('PARTICIPANT')">
 			<display:table name="results"
 				requestURI="result/${actor}list${friend}.do${requestUri}" id="row"
-				pagesize="5" class="displayTag">
+				pagesize="5" class="datagrid">
 				<display:column property="dog.name" titleKey="dog.name"
 					sortable="true" />
 				<display:column titleKey="search.breed" sortable="true">

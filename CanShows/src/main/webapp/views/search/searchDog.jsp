@@ -13,8 +13,9 @@
 <div>
 	<form:form action="search/buscar.do" modelAttribute="searchForm">
 		<acme:textbox code="search.introduced" path="text" />
-
-		<acme:submit name="search" code="search.search" />
+		<center>
+			<acme:submit name="search" code="search.search" />
+		</center>
 	</form:form>
 	<jstl:if test="${dogs!= null}">
 		<h2>
@@ -23,7 +24,7 @@
 			<spring:message code="search.explanation.dosd" />
 		</h2>
 		<display:table name="dogs" id="dog" requestURI="search/buscar.do"
-			pagesize="5" class="displayTag">
+			pagesize="5" class="datagrid">
 			<display:column property="name" titleKey="search.name"
 				sortable="true" />
 			<display:column property="nickname" titleKey="search.nickname"

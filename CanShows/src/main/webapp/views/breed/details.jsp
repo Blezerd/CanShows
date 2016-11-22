@@ -23,7 +23,7 @@
 	<legend>
 		<spring:message code="competition.dogs"></spring:message>
 	</legend>
-	<display:table name="dogs" id="dog" pagesize="5" class="displayTag">
+	<display:table name="dogs" id="dog" pagesize="5" class="datagrid">
 		<display:column property="breed.name" titleKey="search.breed"
 			sortable="true" />
 		<display:column property="name" titleKey="dog.name" sortable="true" />

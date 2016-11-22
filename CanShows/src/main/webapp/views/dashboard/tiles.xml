@@ -21,7 +21,10 @@
 		<put-attribute name="title" value="Best Dog" />
 		<put-attribute name="body" value="/views/dashboard/dashboard.jsp" />
 	</definition>
-	
+	<definition name="dashboard/administrator/map" extends="master.page">
+		<put-attribute name="title" value="Map" />
+		<put-attribute name="body" value="/views/dashboard/dashboard.jsp" />
+	</definition>
 	<definition name="dashboard/administrator/judgeWithCompetitions"
 		extends="master.page">
 		<put-attribute name="title"

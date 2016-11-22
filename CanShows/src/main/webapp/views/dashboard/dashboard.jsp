@@ -29,7 +29,7 @@
 			<div>
 				<display:table name="organisers" id="row"
 					requestURI="dashboard/administrator/organisersWithCompetition.do"
-					pagesize="5" class="displayTag">
+					pagesize="5" class="datagrid">
 
 					<display:column property="name" titleKey="organiser.name"
 						sortable="true" />
@@ -44,157 +44,159 @@
 			</div>
 		</jstl:when>
 		<jstl:when test="${option==2 }">
-			<div>
-				<h3>
-					<a href="breed/details.do?breedId=${dog.breed.id}"><jstl:out
-							value="${dog.breed.name}"></jstl:out></a> <br>
-					<spring:message code="dashboard.name"></spring:message>
-					<jstl:out value="${dog.name}">
-					</jstl:out>
-					<br>
-					<spring:message code="dashboard.nickname"></spring:message>
-					<jstl:out value="${dog.nickname}">
-					</jstl:out>
-					<br>
-					<jstl:if test="${dog.sex=='MALE'}">
-						<spring:message code="dashboard.sex"></spring:message>
-						<spring:message code="dog.male"></spring:message>
+			<fieldset>
+				<div>
+					<h3>
+						<a href="breed/details.do?breedId=${dog.breed.id}"><jstl:out
+								value="${dog.breed.name}"></jstl:out></a> <br>
+						<spring:message code="dashboard.name"></spring:message>
+						<jstl:out value="${dog.name}">
+						</jstl:out>
 						<br>
-					</jstl:if>
-					<jstl:if test="${dog.sex=='FEMALE'}">
-						<spring:message code="dashboard.sex"></spring:message>
-						<spring:message code="dog.female"></spring:message>
+						<spring:message code="dashboard.nickname"></spring:message>
+						<jstl:out value="${dog.nickname}">
+						</jstl:out>
 						<br>
-					</jstl:if>
-					<spring:message code="dashboard.weight"></spring:message>
-					<jstl:out value="${dog.weight}"></jstl:out>
-					<spring:message code="dashboard.weight.unidad"></spring:message>
-					<br>
-					<spring:message code="dashboard.height"></spring:message>
-					<jstl:out value="${dog.height}"></jstl:out>
-					<spring:message code="dashboard.height.unidad"></spring:message>
+						<jstl:if test="${dog.sex=='MALE'}">
+							<spring:message code="dashboard.sex"></spring:message>
+							<spring:message code="dog.male"></spring:message>
+							<br>
+						</jstl:if>
+						<jstl:if test="${dog.sex=='FEMALE'}">
+							<spring:message code="dashboard.sex"></spring:message>
+							<spring:message code="dog.female"></spring:message>
+							<br>
+						</jstl:if>
+						<spring:message code="dashboard.weight"></spring:message>
+						<jstl:out value="${dog.weight}"></jstl:out>
+						<spring:message code="dashboard.weight.unidad"></spring:message>
+						<br>
+						<spring:message code="dashboard.height"></spring:message>
+						<jstl:out value="${dog.height}"></jstl:out>
+						<spring:message code="dashboard.height.unidad"></spring:message>
 
-					<br>
-					<spring:message code="dashboard.totalPoints"></spring:message>
-					<jstl:out value="${dog.totalPoints}"></jstl:out>
-					<br>
-				</h3>
-				<display:table name="results" id="row" pagesize="5"
-					class="displayTag">
-					<display:column property="competition.title"
-						titleKey="dog.competition" sortable="true" />
-					<display:column property="position" titleKey="dog.position"
-						sortable="true" />
-				</display:table>
-				<hr>
-				<fieldset>
-					<legend>
-						<spring:message code="pedigree"></spring:message>
-					</legend>
-					<jstl:if test="${dog.father!=null}">
-						<fieldset>
-							<legend>
-								<spring:message code="pedigree.father"></spring:message>
-							</legend>
-							<spring:message code="dashboard.name"></spring:message>
-							<jstl:out value="${dog.father.name}"></jstl:out>
-							<br>
-							<spring:message code="dashboard.nickname"></spring:message>
-							<jstl:out value="${dog.father.nickname}"></jstl:out>
-							<br>
-							<spring:message code="dashboard.totalPoints"></spring:message>
-							<jstl:out value="${dog.father.totalPoints}"></jstl:out>
-							<br>
-						</fieldset>
-					</jstl:if>
-					<jstl:if test="${dog.mother!=null}">
-						<fieldset>
-							<legend>
-								<spring:message code="pedigree.mother"></spring:message>
-							</legend>
-							<spring:message code="dashboard.name"></spring:message>
-							<jstl:out value="${dog.mother.name}"></jstl:out>
-							<br>
-							<spring:message code="dashboard.nickname"></spring:message>
-							<jstl:out value="${dog.mother.nickname}"></jstl:out>
-							<br>
-							<spring:message code="dashboard.totalPoints"></spring:message>
-							<jstl:out value="${dog.mother.totalPoints}"></jstl:out>
-							<br>
-						</fieldset>
-					</jstl:if>
-					<jstl:if test="${dog.father.father!=null}">
-						<fieldset>
-							<legend>
-								<spring:message code="pedigree.father.father"></spring:message>
-							</legend>
-							<spring:message code="dashboard.name"></spring:message>
-							<jstl:out value="${dog.father.father.name}"></jstl:out>
-							<br>
-							<spring:message code="dashboard.nickname"></spring:message>
-							<jstl:out value="${dog.father.father.nickname}"></jstl:out>
-							<br>
-							<spring:message code="dashboard.totalPoints"></spring:message>
-							<jstl:out value="${dog.father.father.totalPoints}"></jstl:out>
-							<br>
-						</fieldset>
-					</jstl:if>
-					<jstl:if test="${dog.father.mother!=null}">
-						<fieldset>
-							<legend>
-								<spring:message code="pedigree.father.mother"></spring:message>
-							</legend>
-							<spring:message code="dashboard.name"></spring:message>
-							<jstl:out value="${dog.father.mother.name}"></jstl:out>
-							<br>
-							<spring:message code="dashboard.nickname"></spring:message>
-							<jstl:out value="${dog.father.mother.nickname}"></jstl:out>
-							<br>
-							<spring:message code="dashboard.totalPoints"></spring:message>
-							<jstl:out value="${dog.father.mother.totalPoints}"></jstl:out>
-							<br>
-						</fieldset>
-					</jstl:if>
-					<jstl:if test="${dog.mother.father!=null}">
-						<fieldset>
-							<legend>
-								<spring:message code="pedigree.mother.father"></spring:message>
-							</legend>
-							<spring:message code="dashboard.name"></spring:message>
-							<jstl:out value="${dog.mother.father.name}"></jstl:out>
-							<br>
-							<spring:message code="dashboard.nickname"></spring:message>
-							<jstl:out value="${dog.mother.father.nickname}"></jstl:out>
-							<br>
-							<spring:message code="dashboard.totalPoints"></spring:message>
-							<jstl:out value="${dog.mother.father.totalPoints}"></jstl:out>
-							<br>
-						</fieldset>
-					</jstl:if>
-					<jstl:if test="${dog.mother.mother!=null}">
-						<fieldset>
-							<legend>
-								<spring:message code="pedigree.father.mother"></spring:message>
-							</legend>
-							<spring:message code="dashboard.name"></spring:message>
-							<jstl:out value="${dog.mother.mother.name}"></jstl:out>
-							<br>
-							<spring:message code="dashboard.nickname"></spring:message>
-							<jstl:out value="${dog.mother.mother.nickname}"></jstl:out>
-							<br>
-							<spring:message code="dashboard.totalPoints"></spring:message>
-							<jstl:out value="${dog.mother.mother.totalPoints}"></jstl:out>
-							<br>
-						</fieldset>
-					</jstl:if>
-				</fieldset>
-			</div>
+						<br>
+						<spring:message code="dashboard.totalPoints"></spring:message>
+						<jstl:out value="${dog.totalPoints}"></jstl:out>
+						<br>
+					</h3>
+					<display:table name="results" id="row" pagesize="5"
+						class="datagrid">
+						<display:column property="competition.title"
+							titleKey="dog.competition" sortable="true" />
+						<display:column property="position" titleKey="dog.position"
+							sortable="true" />
+					</display:table>
+					<hr>
+					<fieldset>
+						<legend>
+							<spring:message code="pedigree"></spring:message>
+						</legend>
+						<jstl:if test="${dog.father!=null}">
+							<fieldset>
+								<legend>
+									<spring:message code="pedigree.father"></spring:message>
+								</legend>
+								<spring:message code="dashboard.name"></spring:message>
+								<jstl:out value="${dog.father.name}"></jstl:out>
+								<br>
+								<spring:message code="dashboard.nickname"></spring:message>
+								<jstl:out value="${dog.father.nickname}"></jstl:out>
+								<br>
+								<spring:message code="dashboard.totalPoints"></spring:message>
+								<jstl:out value="${dog.father.totalPoints}"></jstl:out>
+								<br>
+							</fieldset>
+						</jstl:if>
+						<jstl:if test="${dog.mother!=null}">
+							<fieldset>
+								<legend>
+									<spring:message code="pedigree.mother"></spring:message>
+								</legend>
+								<spring:message code="dashboard.name"></spring:message>
+								<jstl:out value="${dog.mother.name}"></jstl:out>
+								<br>
+								<spring:message code="dashboard.nickname"></spring:message>
+								<jstl:out value="${dog.mother.nickname}"></jstl:out>
+								<br>
+								<spring:message code="dashboard.totalPoints"></spring:message>
+								<jstl:out value="${dog.mother.totalPoints}"></jstl:out>
+								<br>
+							</fieldset>
+						</jstl:if>
+						<jstl:if test="${dog.father.father!=null}">
+							<fieldset>
+								<legend>
+									<spring:message code="pedigree.father.father"></spring:message>
+								</legend>
+								<spring:message code="dashboard.name"></spring:message>
+								<jstl:out value="${dog.father.father.name}"></jstl:out>
+								<br>
+								<spring:message code="dashboard.nickname"></spring:message>
+								<jstl:out value="${dog.father.father.nickname}"></jstl:out>
+								<br>
+								<spring:message code="dashboard.totalPoints"></spring:message>
+								<jstl:out value="${dog.father.father.totalPoints}"></jstl:out>
+								<br>
+							</fieldset>
+						</jstl:if>
+						<jstl:if test="${dog.father.mother!=null}">
+							<fieldset>
+								<legend>
+									<spring:message code="pedigree.father.mother"></spring:message>
+								</legend>
+								<spring:message code="dashboard.name"></spring:message>
+								<jstl:out value="${dog.father.mother.name}"></jstl:out>
+								<br>
+								<spring:message code="dashboard.nickname"></spring:message>
+								<jstl:out value="${dog.father.mother.nickname}"></jstl:out>
+								<br>
+								<spring:message code="dashboard.totalPoints"></spring:message>
+								<jstl:out value="${dog.father.mother.totalPoints}"></jstl:out>
+								<br>
+							</fieldset>
+						</jstl:if>
+						<jstl:if test="${dog.mother.father!=null}">
+							<fieldset>
+								<legend>
+									<spring:message code="pedigree.mother.father"></spring:message>
+								</legend>
+								<spring:message code="dashboard.name"></spring:message>
+								<jstl:out value="${dog.mother.father.name}"></jstl:out>
+								<br>
+								<spring:message code="dashboard.nickname"></spring:message>
+								<jstl:out value="${dog.mother.father.nickname}"></jstl:out>
+								<br>
+								<spring:message code="dashboard.totalPoints"></spring:message>
+								<jstl:out value="${dog.mother.father.totalPoints}"></jstl:out>
+								<br>
+							</fieldset>
+						</jstl:if>
+						<jstl:if test="${dog.mother.mother!=null}">
+							<fieldset>
+								<legend>
+									<spring:message code="pedigree.father.mother"></spring:message>
+								</legend>
+								<spring:message code="dashboard.name"></spring:message>
+								<jstl:out value="${dog.mother.mother.name}"></jstl:out>
+								<br>
+								<spring:message code="dashboard.nickname"></spring:message>
+								<jstl:out value="${dog.mother.mother.nickname}"></jstl:out>
+								<br>
+								<spring:message code="dashboard.totalPoints"></spring:message>
+								<jstl:out value="${dog.mother.mother.totalPoints}"></jstl:out>
+								<br>
+							</fieldset>
+						</jstl:if>
+					</fieldset>
+				</div>
+			</fieldset>
 		</jstl:when>
 		<jstl:when test="${option==3 }">
 			<div>
 				<display:table name="judges" id="row"
 					requestURI="dashboard/administrator/judgeWithCompetitions.do"
-					pagesize="5" class="displayTag">
+					pagesize="5" class="datagrid">
 
 					<display:column property="name" titleKey="judge.name"
 						sortable="true" />
@@ -213,10 +215,38 @@
 				</display:table>
 			</div>
 		</jstl:when>
+		<jstl:when test="${option==4 }">
+			<div>
+				<script type="text/javascript"
+					src="http://www.google.com/jsapi?key=AIzaSyCBU3oKn-_FUn4pGKCf2iRWKjw_edjzQeY"></script>
+				<script type="text/javascript">
+					//<![CDATA[   
+					google.load('maps', '2', {
+						callback : simple2
+					});
+					var map;
+					function simple2() {
+						if (GBrowserIsCompatible()) {
+							var map = new GMap2(document.getElementById("map2"));
+							map.addControl(new GLargeMapControl());
+							map.addControl(new GMapTypeControl());
+							map.setCenter(new GLatLng(37.3876175, -5.9765625),
+									10);
+						}
+					}
+					window.onload = function() {
+						simple2();
+					}
+					//]]>
+				</script>
+				<div id="map2"
+					style="width: 900px; height: 600px; border: 2px solid green; margin-left: 5%;"></div>
 
+			</div>
+		</jstl:when>
 
 	</jstl:choose>
-
+	</fieldset>
 </security:authorize>
 
 

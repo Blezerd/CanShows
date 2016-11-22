@@ -12,7 +12,7 @@
 
 <display:table name="messages"
 		requestURI="message/${actor}list.do${requestUri}" id="message"
-		pagesize="5" class="displayTag">
+		pagesize="5" class="datagrid">
 		<security:authorize access="hasRole('PARTICIPANT')">
 			
 		

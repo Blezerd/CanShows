@@ -24,7 +24,9 @@
 	style="display: none; position: fixed; left: 0px; right: 0px; bottom: 0px; width: 100%; min-height: 40px; background: #333333; color: #dddddd; z-index: 99999;">
 	<div
 		style="width: 100%; position: absolute; padding-left: 5px; font-family: verdana; font-size: 12px; top: 30%;">
-		<spring:message code="welcome.greeting.cookies" />
+		<h3>
+			<spring:message code="welcome.greeting.cookies" />
+		</h3>
 		<a href="javascript:void(0);"
 			style="padding: 4px; background: #4682B4; text-decoration: none; color: #fff;"
 			onclick="PonerCookie();"><b>OK</b></a> <a
@@ -72,12 +74,11 @@
 		document.getElementById("barritaloca").style.display = "none";
 	}
 </script>
-<p>
+<h3>
 	<spring:message code="welcome.greeting.prefix" />
-	<spring:message code="welcome.greeting.suffix" />
-</p>
-<p>
-	<spring:message code="welcome.greeting.current.time" />
-	${moment}
-</p>
+</h3>
+<h5>
+	<spring:message code="welcome.greeting.prefix2" />
+</h5>
+
 

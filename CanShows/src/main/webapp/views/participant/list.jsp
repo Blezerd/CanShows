@@ -21,7 +21,7 @@
 		<jstl:if test="${friends.size()>0}">
 			<display:table name="friends" id="friend"
 				requestURI="participant/participant/list.do" pagesize="5"
-				class="displayTag">
+				class="datagrid">
 				<display:column property="name" titleKey="search.name"
 					sortable="true" />
 				<display:column property="surname" titleKey="search.surname"

@@ -11,9 +11,15 @@
 .error {
 	color: red;
 	font-weight: bolder;
+	background-color: white;
+	-moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
 }
 
 .message {
 	color: red;
 	font-weight: bolder;
+	background-color: white;
+	-moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
 }

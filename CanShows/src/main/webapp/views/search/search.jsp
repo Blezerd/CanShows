@@ -15,8 +15,9 @@
 		<form:form action="search/participant/buscar.do"
 			modelAttribute="searchForm">
 			<acme:textbox code="search.introduce" path="text" />
-
-			<acme:submit name="search" code="search.search" />
+			<center>
+				<acme:submit name="search" code="search.search" />
+			</center>
 		</form:form>
 		<jstl:if test="${participants!= null}">
 			<h2>
@@ -26,7 +27,7 @@
 			</h2>
 			<display:table name="participants" id="participant"
 				requestURI="search/participant/buscar.do" pagesize="5"
-				class="displayTag">
+				class="datagrid">
 				<display:column property="name" titleKey="search.name"
 					sortable="true" />
 				<display:column property="surname" titleKey="search.surname"

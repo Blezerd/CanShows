@@ -16,7 +16,7 @@
 	uri="http://www.springframework.org/security/tags"%>
 
 <div>
-	<a><img src="images/banner.jpg"
+	<a><img src="images/Logo2.png"
 		style="height: 100px; margin-left: 10%;" alt="CANSHOWS Co., Inc."
 		onclick="javascript: window.location.replace('welcome/index.do')" /></a>
 </div>
@@ -56,6 +56,8 @@
 								code="master.page.dogsWithPoints" /></a></li>
 					<li><a href="dashboard/administrator/judgeWithCompetitions.do"><spring:message
 								code="master.page.judgeWithCompetitions" /></a></li>
+					<li><a href="dashboard/administrator/map.do"><spring:message
+								code="master.page.mapa" /></a></li>
 				</ul></li>
 		</security:authorize>
 		<security:authorize access="hasRole('PARTICIPANT')">
@@ -161,11 +163,14 @@
 			<li><a class="fNiv" href="legal/legal.do"><spring:message
 						code="master.page.legal" /></a></li>
 		</security:authorize>
-		<li><a class="fNiv"><img src="images/lang.png" alt="LANG" height="20px"></a>
+		<li><a class="fNiv"><img src="images/lang.png" alt="LANG"
+				height="20px"></a>
 			<ul>
 				<li class="arrow"></li>
-				<li><a href="?language=en"><img src="images/icono_ingles.png" height="25px" alt="EN"></a></li>
-				<li><a href="?language=es"><img src="images/icono-idioma-espanol.png" height="25px" alt="ES"></a></li>
+				<li><a href="?language=en"><img
+						src="images/icono_ingles.png" height="25px" alt="EN"></a></li>
+				<li><a href="?language=es"><img
+						src="images/icono-idioma-espanol.png" height="25px" alt="ES"></a></li>
 			</ul></li>
 	</ul>
 </div>

@@ -14,6 +14,6 @@
 
 <jsp:useBean id="date" class="java.util.Date" />
 
-<hr />
+<hr class="pie"/>
 
 <b>Copyright &copy; <fmt:formatDate value="${date}" pattern="yyyy" /> CanShows Co., Inc.</b>

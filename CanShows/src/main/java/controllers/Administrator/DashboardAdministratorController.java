@@ -2,6 +2,9 @@ package controllers.Administrator;
 
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,12 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import services.AdministratorService;
-import services.JudgeService;
 import controllers.AbstractController;
 import domain.Dog;
 import domain.Judge;
 import domain.Organiser;
+import services.AdministratorService;
+import services.JudgeService;
 
 @Controller
 @RequestMapping("/dashboard/administrator")
@@ -82,6 +85,15 @@ public class DashboardAdministratorController extends AbstractController {
 		return result;
 
 	}
+	
+
+    @RequestMapping(value = "/map", method = RequestMethod.GET)
+    public ModelAndView getPages() {
+        ModelAndView result = new ModelAndView("dashboard/administrator/map");
+        result.addObject("option", 4);
+        result.addObject("requestURI", "dashboard/administrator/map.do");
+        return result;
+    }
 	
 	
 

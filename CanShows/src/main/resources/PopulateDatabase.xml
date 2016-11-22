@@ -1148,8 +1148,8 @@ Dotado de una inteligencia excepcional, el educador y psicólogo Stanley Coren, 
 		<property name="thirdPrize" value="Un peluche de Gollum" />
 		<property name="minimumPoints" value="0" />
 		<property name="resultsPublished" value="true" />
-		<property name="celebrationDate" value="2017/01/01" />
-		<property name="inscriptionLimitDate" value="2016/12/12" />
+		<property name="celebrationDate" value="2016/11/11" />
+		<property name="inscriptionLimitDate" value="2016/10/10" />
 		<property name="organiser" ref="organiser1" />
 		<property name="judges">
 			<list>
@@ -1179,8 +1179,8 @@ Dotado de una inteligencia excepcional, el educador y psicólogo Stanley Coren, 
 		<property name="thirdPrize" value="Juguete para perro de Frodo y Sam" />
 		<property name="minimumPoints" value="0" />
 		<property name="resultsPublished" value="false" />
-		<property name="celebrationDate" value="2017/01/01" />
-		<property name="inscriptionLimitDate" value="2016/12/12" />
+		<property name="celebrationDate" value="2016/11/15" />
+		<property name="inscriptionLimitDate" value="2016/11/11" />
 		<property name="organiser" ref="organiser1" />
 		<property name="judges">
 			<list>
@@ -1189,7 +1189,7 @@ Dotado de una inteligencia excepcional, el educador y psicólogo Stanley Coren, 
 		</property>
 		<property name="results">
 			<list>
-				<ref bean="result2" />
+				<!-- <ref bean="result2" /> -->
 			</list>
 		</property>
 		<property name="groups">
@@ -1393,7 +1393,7 @@ Dotado de una inteligencia excepcional, el educador y psicólogo Stanley Coren, 
 		<property name="breed" ref="breed2" />
 		<property name="results">
 			<list>
-				<ref bean="result2" />
+				<!-- <ref bean="result2" >/ -->
 			</list>
 		</property>
 		<property name="groups">
@@ -1524,7 +1524,7 @@ Dotado de una inteligencia excepcional, el educador y psicólogo Stanley Coren, 
 	<bean id="request4" class="domain.Request">
 		<property name="code" value="Rizogordo143" />
 		<property name="title" value="Rizogordo" />
-		<property name="creationMoment" value="2016/12/12" />
+		<property name="creationMoment" value="2016/11/12" />
 		<property name="status" value="ACCEPTED" />
 		<property name="comment" value="" />
 		<property name="description" value="Mi perro diablo, es muy bonito" />
@@ -1562,7 +1562,7 @@ Dotado de una inteligencia excepcional, el educador y psicólogo Stanley Coren, 
 		<property name="results">
 			<list>
 				<ref bean="result1" />
-				<ref bean="result2" />
+				<!-- <ref bean="result2" /> -->
 			</list>
 		</property>
 	</bean>
@@ -1600,14 +1600,14 @@ Dotado de una inteligencia excepcional, el educador y psicólogo Stanley Coren, 
 		<property name="dog" ref="dog1" />
 		<property name="judge" ref="judge1" />
 	</bean>
-	<bean id="result2" class="domain.Result">
+	<!-- <bean id="result2" class="domain.Result">
 		<property name="position" value="1" />
 		<property name="comment" value="Mejor perro absoluto" />
 		<property name="points" value="20" />
 		<property name="competition" ref="competition2" />
 		<property name="dog" ref="dog2" />
 		<property name="judge" ref="judge1" />
-	</bean>
+	</bean> -->
 	<bean id="result3" class="domain.Result">
 		<property name="position" value="2" />
 		<property name="comment"

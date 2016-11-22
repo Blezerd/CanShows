@@ -20,7 +20,7 @@
 		<div>
 			<display:table name="dogs"
 				requestURI="competition/judge/judge.do${requestUri}" id="dog"
-				pagesize="5" class="displayTag">
+				pagesize="5" class="datagrid">
 				<display:column titleKey="search.breed" sortable="true">
 					<a href="breed/details.do?breedId=${dog.breed.id}"><jstl:out
 							value="${dog.breed.name}"></jstl:out></a>

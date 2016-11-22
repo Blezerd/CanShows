@@ -13,7 +13,7 @@
 <div>
 	<display:table name="requests"
 		requestURI="request/${actor}list.do${requestUri}" id="row"
-		pagesize="5" class="displayTag">
+		pagesize="5" class="datagrid">
 
 		<display:column property="code" titleKey="request.code"
 			sortable="true" />

@@ -11,7 +11,7 @@
 <div>
 	<display:table name="folders"
 		requestURI="folder/${actor}list.do${requestUri}" id="folder"
-		pagesize="5" class="displayTag">
+		pagesize="5" class="datagrid">
 		<security:authorize access="hasRole('PARTICIPANT')">
 		
 		<display:column property="name" titleKey="folder.name" sortable="true"/>
