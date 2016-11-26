@@ -217,36 +217,67 @@
 		</jstl:when>
 		<jstl:when test="${option==4 }">
 			<div>
-				<script type="text/javascript"
-					src="http://www.google.com/jsapi?key=AIzaSyCBU3oKn-_FUn4pGKCf2iRWKjw_edjzQeY"></script>
-				<script type="text/javascript">
-					//<![CDATA[   
-					google.load('maps', '2', {
-						callback : simple2
-					});
-					var map;
-					function simple2() {
-						if (GBrowserIsCompatible()) {
-							var map = new GMap2(document.getElementById("map2"));
-							map.addControl(new GLargeMapControl());
-							map.addControl(new GMapTypeControl());
-							map.setCenter(new GLatLng(37.3876175, -5.9765625),
-									10);
-						}
-					}
-					window.onload = function() {
-						simple2();
-					}
-					//]]>
+				<script> 
+					var addresses = new Array;
+					var latitudes = new Array;
+					var longitudes = new Array;
 				</script>
-				<div id="map2"
-					style="width: 900px; height: 600px; border: 2px solid green; margin-left: 5%;"></div>
-
+				<jstl:forEach var="j" begin="0" end="${calles.size()-1}">
+					<script>addresses.push(${calles.get(j).toString()});</script>
+				</jstl:forEach>
+				<script type="text/javascript">
+					function geocode_result_handler(result, status) {
+						var marker;
+				  		if (status != google.maps.GeocoderStatus.OK) {
+				    		alert('Geocoding failed. ' + status);
+				  		} else {
+				    		map.fitBounds(result[0].geometry.viewport);
+				    		var marker_title = result[0].formatted_address;
+				    		if (marker) {
+				      			marker.setPosition(result[0].geometry.location);
+				      			marker.setTitle(marker_title);
+				      			market.setAnimation(google.maps.Animation.DROP);
+				      			map.setCenter(new google.maps.LatLng(37.3876175, -5.9765625));
+								map.setZoom(11);
+				    		} else {
+				      			marker = new google.maps.Marker({
+				        			position: result[0].geometry.location,
+				        			title: marker_title,
+				        			animation: google.maps.Animation.DROP,
+				        			map: map
+				      			});
+				      			map.setCenter(new google.maps.LatLng(37.3876175, -5.9765625));
+								map.setZoom(11);
+				    		}
+				  		}
+					}
+					var map
+					function initMap() {
+						var geocoder = new google.maps.Geocoder();
+						map = new google.maps.Map(
+							document.getElementById('map'),{
+								center: new google.maps.LatLng(37.3876175, -5.9765625), 
+								zoom: 11, 
+								mapTypeId: google.maps.MapTypeId.ROADMAP
+							}
+						);
+						for(var i=0;i<addresses.length;i++){
+							var address = addresses[i];
+							geocoder.geocode({'address': address }, geocode_result_handler);
+						}
+						//Intentar centrar el mapa y poner zoom
+						map.setCenter(new google.maps.LatLng(37.3876175, -5.9765625));
+						map.setZoom(11);
+					}
+					
+				</script>
+				<div id="map"
+					style="width: 900px; height: 600px; border: 2px solid brown; margin-left: 5%;"></div>
+				<script asinc defer
+					src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBU3oKn-_FUn4pGKCf2iRWKjw_edjzQeY&sensor=false&libraries=geometry,places&callback=initMap"></script>
 			</div>
 		</jstl:when>
-
 	</jstl:choose>
-	</fieldset>
 </security:authorize>
 
 

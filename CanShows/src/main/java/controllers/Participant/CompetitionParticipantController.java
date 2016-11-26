@@ -48,8 +48,7 @@ public class CompetitionParticipantController extends AbstractController {
 		ModelAndView result;
 
 		Participant p = participantService.findByPrincipal();
-		Collection<Competition> competitions = competitionService
-				.findAllCompetitionsFromParticipantById(p.getId());
+		Collection<Competition> competitions = competitionService.findAllCompetitionsFromParticipantById(p.getId());
 		result = new ModelAndView("competition/participant/list");
 		result.addObject("actor", "participant/");
 		result.addObject("participant", p);
@@ -77,6 +76,7 @@ public class CompetitionParticipantController extends AbstractController {
 			dogs.addAll(g.getDogs());
 		}
 		result.addObject("dogs", dogs);
+		result.addObject("calle", "\"" + c.getAdress() + "\"");
 		result.addObject("requestURI", "competition/participant/details.do");
 		return result;
 	}
@@ -87,8 +87,7 @@ public class CompetitionParticipantController extends AbstractController {
 	public ModelAndView join(@RequestParam int competitionId) {
 		ModelAndView result;
 		Competition c = competitionService.findOneToShow(competitionId);
-		CompetitionGroupForm competitionGroupForm = competitionService
-				.constructCompGroupForm(competitionId);
+		CompetitionGroupForm competitionGroupForm = competitionService.constructCompGroupForm(competitionId);
 		result = new ModelAndView("competition/participant/join");
 		result.addObject("competitionGroupForm", competitionGroupForm);
 		result.addObject("groups", c.getGroups());
@@ -96,15 +95,13 @@ public class CompetitionParticipantController extends AbstractController {
 	}
 
 	@RequestMapping(value = "/join", method = RequestMethod.POST, params = "save")
-	public ModelAndView save(@Valid CompetitionGroupForm competitionGroupForm,
-			BindingResult binding) {
+	public ModelAndView save(@Valid CompetitionGroupForm competitionGroupForm, BindingResult binding) {
 		ModelAndView result;
 		boolean lleno = competitionGroupForm.getGrupo().getNumberOfDogs()
 				.equals(competitionGroupForm.getGrupo().getDogs().size());
 		if (binding.hasErrors() || competitionGroupForm.getGrupo() == null) {
 			String message = "request.commit.error";
-			Competition c = competitionService
-					.findOneToShow(competitionGroupForm.getCompId());
+			Competition c = competitionService.findOneToShow(competitionGroupForm.getCompId());
 			result = new ModelAndView("competition/participant/join");
 			result.addObject("competitionGroupForm", competitionGroupForm);
 			result.addObject("groups", c.getGroups());
@@ -116,14 +113,11 @@ public class CompetitionParticipantController extends AbstractController {
 		} else {
 			try {
 
-				CompetitionDogForm competitionDogForm = competitionService
-						.constructCompGroupForm(competitionGroupForm);
-				result = new ModelAndView(
-						"competition/participant/joinCompetition");
+				CompetitionDogForm competitionDogForm = competitionService.constructCompGroupForm(competitionGroupForm);
+				result = new ModelAndView("competition/participant/joinCompetition");
 				result.addObject("competitionDogForm", competitionDogForm);
 				Groups grupo = competitionGroupForm.getGrupo();
-				Collection<Dog> dogs = dogService
-						.findAllDogsFromBreedAndParticipant(grupo.getBreed());
+				Collection<Dog> dogs = dogService.findAllDogsFromBreedAndParticipant(grupo.getBreed());
 				Collection<Dog> dogsAvailables = new HashSet<Dog>();
 				for (Dog a : dogs) {
 					if (!grupo.getDogs().contains(a)) {
@@ -136,8 +130,7 @@ public class CompetitionParticipantController extends AbstractController {
 
 			} catch (Throwable oops) {
 				String message = "request.commit.error";
-				Competition c = competitionService
-						.findOneToShow(competitionGroupForm.getCompId());
+				Competition c = competitionService.findOneToShow(competitionGroupForm.getCompId());
 				result = new ModelAndView("competition/participant/join");
 				result.addObject("competitionGroupForm", competitionGroupForm);
 				result.addObject("groups", c.getGroups());
@@ -154,13 +147,11 @@ public class CompetitionParticipantController extends AbstractController {
 	}
 
 	@RequestMapping(value = "/joinCompetition", method = RequestMethod.POST, params = "save")
-	public ModelAndView saveJoinCompetition(
-			@Valid CompetitionDogForm competitionDogForm, BindingResult binding) {
+	public ModelAndView saveJoinCompetition(@Valid CompetitionDogForm competitionDogForm, BindingResult binding) {
 		ModelAndView result;
 		boolean lleno = competitionDogForm.getGrupo().getNumberOfDogs()
 				.equals(competitionDogForm.getGrupo().getDogs().size());
-		if (binding.hasErrors() || competitionDogForm.getGrupo() == null
-				|| competitionDogForm.getDog() == null
+		if (binding.hasErrors() || competitionDogForm.getGrupo() == null || competitionDogForm.getDog() == null
 				|| competitionDogForm.getCompId() == null) {
 			String message = "request.commit.error";
 
@@ -168,8 +159,7 @@ public class CompetitionParticipantController extends AbstractController {
 			result.addObject("competitionDogForm", competitionDogForm);
 			result.addObject("lleno", lleno);
 			Groups grupo = competitionDogForm.getGrupo();
-			Collection<Dog> dogs = dogService
-					.findAllDogsFromBreedAndParticipant(grupo.getBreed());
+			Collection<Dog> dogs = dogService.findAllDogsFromBreedAndParticipant(grupo.getBreed());
 			Collection<Dog> dogsAvailables = new HashSet<Dog>();
 			for (Dog a : dogs) {
 				if (!grupo.getDogs().contains(a)) {
@@ -177,8 +167,7 @@ public class CompetitionParticipantController extends AbstractController {
 				}
 			}
 			result.addObject("dogs", dogsAvailables);
-			if (competitionDogForm.getGrupo() == null
-					|| competitionDogForm.getDog() == null
+			if (competitionDogForm.getGrupo() == null || competitionDogForm.getDog() == null
 					|| competitionDogForm.getCompId() == null) {
 				message = "register.error.params";
 			}
@@ -187,22 +176,18 @@ public class CompetitionParticipantController extends AbstractController {
 		} else {
 			try {
 
-				competitionService.joinDogToGroupAndCompetition(
-						competitionDogForm.getCompId(),
-						competitionDogForm.getGrupo(),
-						competitionDogForm.getDog());
+				competitionService.joinDogToGroupAndCompetition(competitionDogForm.getCompId(),
+						competitionDogForm.getGrupo(), competitionDogForm.getDog());
 				result = new ModelAndView("redirect:list.do");
 
 			} catch (Throwable oops) {
 				String message = "request.commit.error";
 
-				result = new ModelAndView(
-						"competition/participant/joinCompetition");
+				result = new ModelAndView("competition/participant/joinCompetition");
 				result.addObject("lleno", lleno);
 				result.addObject("competitionDogForm", competitionDogForm);
 				Groups grupo = competitionDogForm.getGrupo();
-				Collection<Dog> dogs = dogService
-						.findAllDogsFromBreedAndParticipant(grupo.getBreed());
+				Collection<Dog> dogs = dogService.findAllDogsFromBreedAndParticipant(grupo.getBreed());
 				Collection<Dog> dogsAvailables = new HashSet<Dog>();
 				for (Dog a : dogs) {
 					if (!grupo.getDogs().contains(a)) {
@@ -210,8 +195,7 @@ public class CompetitionParticipantController extends AbstractController {
 					}
 				}
 				result.addObject("dogs", dogsAvailables);
-				if (competitionDogForm.getGrupo() == null
-						|| competitionDogForm.getDog() == null
+				if (competitionDogForm.getGrupo() == null || competitionDogForm.getDog() == null
 						|| competitionDogForm.getCompId() == null) {
 					message = "register.error.params";
 				}

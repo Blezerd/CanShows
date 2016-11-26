@@ -1141,7 +1141,7 @@ Dotado de una inteligencia excepcional, el educador y psicólogo Stanley Coren, 
 		<property name="title" value="Exposición de Mordor" />
 		<property name="type" value="BEAUTY" />
 		<property name="adress"
-			value="Calle mordor número 1, detras del ojo de Sauron" />
+			value="Cisneo Alto 14, Sevilla" />
 		<property name="inscriptionPrice" value="12.5" />
 		<property name="firstPrize" value="El anillo único" />
 		<property name="secondPrize" value="La maza de sauron" />
@@ -1172,7 +1172,7 @@ Dotado de una inteligencia excepcional, el educador y psicólogo Stanley Coren, 
 	<bean id="competition2" class="domain.Competition">
 		<property name="title" value="Prueba de trabajo de mordor" />
 		<property name="type" value="WORK" />
-		<property name="adress" value="Calle Gollum, junto a la heladería Orcolados" />
+		<property name="adress" value="Calle Giralda, San José de la Rinconada" />
 		<property name="inscriptionPrice" value="10.3" />
 		<property name="firstPrize" value="Carne de Troll para 1 año" />
 		<property name="secondPrize" value="Saco de pienso marca'Ella Laraña'" />
@@ -1229,7 +1229,7 @@ Dotado de una inteligencia excepcional, el educador y psicólogo Stanley Coren, 
 	<bean id="competition4" class="domain.Competition">
 		<property name="title" value="Prueba de trabajo en La Comarca" />
 		<property name="type" value="WORK" />
-		<property name="adress" value="Detas de Bolsón Cerrado" />
+		<property name="adress" value="Calle Giralda, San José de la Rinconada" />
 		<property name="inscriptionPrice" value="0" />
 		<property name="firstPrize" value="Trofeo Hobbit: Primer puesto" />
 		<property name="secondPrize" value="Medalla segundo puesto" />
@@ -1257,7 +1257,7 @@ Dotado de una inteligencia excepcional, el educador y psicólogo Stanley Coren, 
 	<bean id="competition5" class="domain.Competition">
 		<property name="title" value="Exposición de belleza de Cordoba" />
 		<property name="type" value="BEAUTY" />
-		<property name="adress" value="Calle falsa 123 Cordoba" />
+		<property name="adress" value="Cisneo Alto, Sevilla" />
 		<property name="inscriptionPrice" value="15.20" />
 		<property name="firstPrize" value="Set peluquería perro" />
 		<property name="secondPrize" value="Set baño perro" />

@@ -65,6 +65,17 @@ public class CompetitionService {
 		return resu;
 	}
 
+	public Collection<Competition> findAllCompetitionsNotStarted() {
+		Collection<Competition> res = competitionRepository.findAll();
+		Collection<Competition> resu = new HashSet<Competition>();
+		Date now = new Date(System.currentTimeMillis());
+		for (Competition c : res) {
+			if (c.getCelebrationDate().after(now)) {
+				resu.add(c);
+			}
+		}
+		return resu;
+	}
 	public Collection<Competition> findAllCompetitionsFromParticipantById(int id) {
 		Collection<Competition> res = new HashSet<Competition>();
 		Participant p = participantService.findByPrincipal();

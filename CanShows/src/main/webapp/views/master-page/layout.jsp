@@ -26,7 +26,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
 <link rel="shortcut icon" href="favicon.ico" />
-
 <script type="text/javascript" src="scripts/jquery.js"></script>
 <script type="text/javascript" src="scripts/jquery-ui.js"></script>
 <script type="text/javascript" src="scripts/jmenu.js"></script>
@@ -65,8 +64,8 @@
 </script>
 
 </head>
-
-<body  background="http://www.delabahia.es/wp-content/uploads/2015/08/dog-313357_1280.jpg">
+<body
+	background="http://www.delabahia.es/wp-content/uploads/2015/08/dog-313357_1280.jpg">
 
 	<div>
 		<tiles:insertAttribute name="header" />
@@ -75,8 +74,8 @@
 		<tiles:insertAttribute name="title" />
 	</h1>
 	<div class="row">
-	
-		<div style="padding-bottom:20px;">
+
+		<div style="padding-bottom: 20px;">
 			<tiles:insertAttribute name="body" />
 		</div>
 	</div>

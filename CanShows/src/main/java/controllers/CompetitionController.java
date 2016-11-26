@@ -80,6 +80,7 @@ public class CompetitionController extends AbstractController {
 		}
 		result.addObject("dogs", dogs);
 		result.addObject("requestURI", "competition/details.do");
+		result.addObject("calle","\""+c.getAdress()+"\"");
 		return result;
 
 	}

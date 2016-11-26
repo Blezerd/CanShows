@@ -91,6 +91,7 @@ public class CompetitionOrganiserController extends AbstractController {
 		result.addObject("requestURI", "competition/organiser/details.do");
 		Date now = new Date(System.currentTimeMillis());
 		result.addObject("now", now);
+		result.addObject("calle","\""+c.getAdress()+"\"");
 		return result;
 
 	}
